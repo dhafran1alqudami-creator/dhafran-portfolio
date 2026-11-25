@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة التحكم الإدارية | ظفران القدمي</title>
+  <meta name="description" content="الموقع الشخصي لظفران القدمي — مدخل بيانات ومصمم جرافيك. خبرة في إدخال البيانات بنظام Onyx Pro والتصميم الجرافيكي عبر الجوال والكمبيوتر." />
+  <meta name="keywords" content="ظفران القدمي, مدخل بيانات, مصمم جرافيك, Onyx Pro, ثروة العربية, مترو مارت, ديار التميز, مكة المكرمة" />
+  <meta property="og:title" content="ظفران القدمي | مدخل بيانات ومصمم جرافيك" />
+  <meta property="og:description" content="أجمع بين دقة البيانات وجمال التصميم لأحوّل الأفكار إلى أعمال مميزة." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ظفران القدمي | مدخل بيانات ومصمم جرافيك" />
+  <meta name="twitter:description" content="الموقع الشخصي لظفران القدمي — مدخل بيانات ومصمم جرافيك." />
+
+  <!-- Schema.org Person & WebSite JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "ظفران القدمي",
+    "alternateName": "Dhafran Al-Qudami",
+    "jobTitle": "مدخل بيانات ومصمم جرافيك",
+    "telephone": "+966578447139",
+    "email": "dhafran1alqudami@gmail.com",
+    "knowsAbout": ["إدخال البيانات", "Onyx Pro", "تنظيم ومراجعة البيانات", "التصميم الجرافيكي"]
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Cairo, Tajawal, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navyDeep: '#071426',
+            royalBlue: '#123B75',
+            goldLux: '#D4AF37',
+            goldLight: '#F2D06B',
+            crispWhite: '#F5F5F5'
+          },
+          fontFamily: {
+            cairo: ['Cairo', 'Tajawal', 'sans-serif'],
+            tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+            inter: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            gold: '0 0 25px rgba(212, 175, 55, 0.25)',
+            goldStrong: '0 0 40px rgba(212, 175, 55, 0.42)',
+            royal: '0 18px 45px rgba(7, 20, 38, 0.65)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #071426;
+      --bg-secondary: #0c1f3a;
+      --accent-royal: #123B75;
+      --accent-gold: #D4AF37;
+      --text-primary: #F5F5F5;
+      --text-muted: #b8c7dc;
+      --glass-bg: rgba(18, 59, 117, 0.22);
+      --glass-border: rgba(212, 175, 55, 0.28);
+      --transition-speed: 0.45s;
+    }
+
+    html.light-theme {
+      --bg-primary: #F5F5F5;
+      --bg-secondary: #e8eef6;
+      --accent-royal: #123B75;
+      --accent-gold: #b8911e;
+      --text-primary: #071426;
+      --text-muted: #3b5275;
+      --glass-bg: rgba(255, 255, 255, 0.78);
+      --glass-border: rgba(18, 59, 117, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    }
+
+    html[lang="en"] body {
+      font-family: 'Inter', 'Cairo', sans-serif;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-border);
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(212, 175, 55, 0.65);
+      box-shadow: 0 16px 40px rgba(212, 175, 55, 0.16);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(120deg, #D4AF37 0%, #F7E28B 45%, #C69A24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-enter {
+      animation: cinematicPageIn var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes cinematicPageIn {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(16px) scale(0.99);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(7, 20, 38, 0.7);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.45);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 175, 55, 0.8);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-navyDeep text-crispWhite selection:bg-goldLux selection:text-navyDeep">
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-24 left-4 right-4 sm:right-auto sm:left-6 sm:w-96 z-[90] flex flex-col gap-2 pointer-events-none no-print"></div>
+
+  <!-- Dynamic Modal Container -->
+  <div id="modal-backdrop" class="fixed inset-0 z-[85] hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm overflow-y-auto no-print">
+    <div id="modal-panel" class="glass-card w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 relative border border-goldLux/45 shadow-goldStrong">
+      <button onclick="if(isAdminAuthenticated) closeModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-crispWhite transition float-left" aria-label="إغلاق">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="modal-content" class="clear-both pt-1"></div>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Full Overlay Shell -->
+  <div id="admin-shell" class="fixed inset-0 z-[40] bg-navyDeep text-crispWhite overflow-hidden no-print">
+    <div class="flex h-full">
+      <!-- Admin Sidebar -->
+      <aside id="admin-sidebar" class="fixed lg:static inset-y-0 right-0 z-40 w-72 bg-[#050f1d] border-l border-goldLux/25 flex flex-col transform translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <div class="p-4 border-b border-goldLux/20 flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-lg bg-goldLux/20 border border-goldLux/60 flex items-center justify-center text-goldLux font-extrabold">ظ</div>
+            <div>
+              <div class="text-sm font-extrabold text-crispWhite">لوحة التحكم الإدارية</div>
+              <div id="admin-session-badge" class="text-[11px] text-emerald-400">متصل • مدير النظام</div>
+            </div>
+          </div>
+          <button onclick="toggleAdminSidebar()" class="lg:hidden p-1.5 rounded-lg bg-white/10 text-slate-300">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <div id="admin-menu-list" class="flex-1 overflow-y-auto p-3 space-y-1 text-sm"></div>
+
+        <div class="p-3 border-t border-white/10 space-y-2">
+          <button onclick="closeAdminDashboard()" class="w-full py-2 px-3 rounded-xl bg-royalBlue/50 hover:bg-royalBlue/80 border border-goldLux/30 text-xs font-bold text-goldLux flex items-center justify-center gap-2">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>العودة للموقع العام</span>
+          </button>
+          <button onclick="logoutAdmin()" class="w-full py-2 px-3 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-400/30 text-xs font-bold text-rose-300 flex items-center justify-center gap-2">
+            <i data-lucide="log-out" class="w-4 h-4"></i>
+            <span>تسجيل الخروج</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Admin Workspace -->
+      <div class="flex-1 flex flex-col h-full overflow-hidden bg-gradient-to-br from-navyDeep via-[#091b34] to-navyDeep">
+        <header class="h-16 px-4 sm:px-6 border-b border-goldLux/20 flex items-center justify-between bg-navyDeep/80 backdrop-blur-md shrink-0">
+          <div class="flex items-center gap-3">
+            <button onclick="toggleAdminSidebar()" class="lg:hidden p-2 rounded-xl bg-royalBlue/40 border border-goldLux/30 text-goldLux">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+            <h2 id="admin-current-section-title" class="text-base sm:text-lg font-extrabold gold-gradient-text">لوحة التحكم الرئيسية</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="admin-unread-badge" class="px-2.5 py-1 rounded-full bg-goldLux/15 border border-goldLux/40 text-goldLux text-xs font-bold">0 إشعار</span>
+            <button onclick="renderAdminSection('notifications')" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-goldLux relative" title="الإشعارات">
+              <i data-lucide="bell" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </header>
+
+        <main id="admin-workspace" class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-6"></main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script>
+    const STORAGE_KEY = 'dhafran_alqudami_platform_v1';
+    const SESSION_VISITOR_KEY = 'dhafran_session_visitor_id';
+
+    const DEFAULT_PORTRAIT_SVG = `data:image/svg+xml;utf8,` + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#123B75"/>
+            <stop offset="100%" stop-color="#071426"/>
+          </linearGradient>
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F7E28B"/>
+            <stop offset="100%" stop-color="#D4AF37"/>
+          </linearGradient>
+        </defs>
+        <rect width="400" height="400" fill="url(#bg)"/>
+        <circle cx="200" cy="150" r="68" fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.6"/>
+        <circle cx="200" cy="148" r="52" fill="#D4AF37" opacity="0.18"/>
+        <text x="200" y="164" text-anchor="middle" fill="#F7E28B" font-family="Cairo, sans-serif" font-size="48" font-weight="800">ظ</text>
+        <path d="M95 335 C105 255, 295 255, 305 335" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+        <text x="200" y="370" text-anchor="middle" fill="#F5F5F5" font-family="Cairo, sans-serif" font-size="20" font-weight="700">ظفران القدمي</text>
+      </svg>
+    `);
+
+    const PAGE_DEFINITIONS = [
+      { id: 'home', ar: 'الرئيسية', en: 'Home', slug: '/', visible: true, indexable: true, inSitemap: true },
+      { id: 'about_me', ar: 'من أنا', en: 'About Me', slug: '/about-me', visible: true, indexable: true, inSitemap: true },
+      { id: 'about_us', ar: 'من نحن', en: 'About Us', slug: '/about-us', visible: true, indexable: true, inSitemap: true },
+      { id: 'skills', ar: 'المهارات', en: 'Skills', slug: '/skills', visible: true, indexable: true, inSitemap: true },
+      { id: 'experience', ar: 'الخبرات العملية', en: 'Experience', slug: '/experience', visible: true, indexable: true, inSitemap: true },
+      { id: 'portfolio', ar: 'معرض الأعمال والتصاميم', en: 'Portfolio', slug: '/portfolio', visible: true, indexable: true, inSitemap: true },
+      { id: 'achievements', ar: 'الإنجازات والمشاريع', en: 'Achievements', slug: '/achievements', visible: true, indexable: true, inSitemap: true },
+      { id: 'certificates', ar: 'الشهادات والدورات', en: 'Certificates', slug: '/certificates', visible: true, indexable: true, inSitemap: true },
+      { id: 'cv', ar: 'السيرة الذاتية', en: 'CV / Resume', slug: '/cv', visible: true, indexable: true, inSitemap: true },
+      { id: 'digital_id', ar: 'بطاقة التعريف الرقمية', en: 'Digital ID & QR', slug: '/digital-id', visible: true, indexable: true, inSitemap: true },
+      { id: 'contact', ar: 'اتصل بنا', en: 'Contact Us', slug: '/contact', visible: true, indexable: true, inSitemap: true },
+      { id: 'privacy', ar: 'سياسة الخصوصية', en: 'Privacy Policy', slug: '/privacy-policy', visible: true, indexable: true, inSitemap: true }
+    ];
+
+    function createInitialState() {
+      const nowIso = new Date().toISOString();
+      const pagesConfig = {};
+      PAGE_DEFINITIONS.forEach((p) => {
+        pagesConfig[p.id] = {
+          id: p.id,
+          titleAr: p.ar,
+          titleEn: p.en,
+          slug: p.slug,
+          visible: p.visible,
+          heroImage: p.id === 'home' ? DEFAULT_PORTRAIT_SVG : '',
+          accentColor: '#D4AF37',
+          bgTint: 'default',
+          animationStyle: 'cinematic',
+          seoTitleAr: `${p.ar} | ظفران القدمي — مدخل بيانات ومصمم جرافيك`,
+          seoTitleEn: `${p.en} | Dhafran Al-Qudami — Data Entry & Graphic Designer`,
+          seoDescAr: `صفحة ${p.ar} للموقع الشخصي لظفران القدمي — مدخل بيانات ومصمم جرافيك.`,
+          seoDescEn: `${p.en} page of Dhafran Al-Qudami personal portfolio.`,
+          canonicalUrl: `https://dhafran-alqudami.example${p.slug}`,
+          indexable: p.indexable,
+          inSitemap: p.inSitemap,
+          status: 'published',
+          draftData: null,
+          previousVersion: null
+        };
+      });
+
+      return {
+        meta: {
+          createdAt: nowIso,
+          language: 'ar',
+          theme: 'dark',
+          motionEnabled: true,
+          soundEnabled: false,
+          customCursorEnabled: true,
+          particlesEnabled: true,
+          whatsappEnabled: true,
+          whatsappNumber: '+966578447139',
+          whatsappConfirmedByAdmin: false,
+          whatsappPosition: 'right',
+          whatsappGreetingAr: 'مرحباً أستاذ ظفران، أود التواصل بخصوص...',
+          whatsappGreetingEn: 'Hello Dhafran, I would like to reach out regarding...',
+          contactEmail: 'dhafran1alqudami@gmail.com',
+          phoneNumber: '+966578447139',
+          siteUrl: 'https://dhafran-alqudami.example',
+          digitalCardQrContent: 'https://dhafran-alqudami.example',
+          seoConfig: {
+            globalKeywordsAr: 'ظفران القدمي, مدخل بيانات, مصمم جرافيك, Onyx Pro, ثروة العربية, مترو مارت, ديار التميز, مكة المكرمة',
+            globalKeywordsEn: 'Dhafran Al-Qudami, Data Entry, Graphic Designer, Onyx Pro, Tharwa Arabia, Metro Mart, Diyar Al-Tamayuz, Makkah',
+            googleSearchConsoleCode: '',
+            googlePublishedAt: '',
+            googlePublishNote: '',
+            allowIndexing: true,
+            autoGenerateSitemap: true
+          },
+          socialLinks: [
+            { id: 'soc_wa', label: 'WhatsApp', platform: 'whatsapp', url: 'https://wa.me/966578447139', enabled: true }
+          ],
+          notificationPrefs: {
+            newMessage: true,
+            newFollower: true,
+            trafficSpike: true,
+            saveError: true,
+            uploadError: true,
+            serviceIssue: true
+          },
+          externalServices: {
+            databaseProvider: 'Browser Local Store (Active Demo) — Firebase/Supabase Ready',
+            emailServiceConfigured: false,
+            emailProviderNote: 'يتطلب ربط خدمة بريد خارجية (مثل EmailJS أو Resend أو Formspree أو خادم خلفي) لإرسال رسائل التواصل الفورية إلى dhafran1alqudami@gmail.com دون كشف مفاتيح سرية في الواجهة.',
+            translationServiceConfigured: false
+          }
+        },
+        identity: {
+          nameAr: 'ظفران القدمي',
+          nameEn: 'Dhafran Al-Qudami',
+          roleAr: 'مدخل بيانات ومصمم جرافيك',
+          roleEn: 'Data Entry Specialist & Graphic Designer',
+          welcomeAr: 'مرحباً بك في موقعي الشخصي، المساحة التي أشاركك من خلالها خبراتي ومهاراتي وأعمالي الإبداعية. أؤمن أن الدقة في العمل والإبداع في التصميم هما أساس التميز والنجاح.',
+          welcomeEn: 'Welcome to my personal website, the space where I share my experience, skills, and creative work. I believe accuracy in execution and creativity in design are the foundation of excellence and success.',
+          taglineAr: 'أجمع بين دقة البيانات وجمال التصميم لأحوّل الأفكار إلى أعمال مميزة.',
+          taglineEn: 'Combining data accuracy with design beauty to turn ideas into distinctive work.',
+          portraitUrl: DEFAULT_PORTRAIT_SVG,
+          aboutMeAr: `أنا ظفران القدمي، مهتم بمجال إدخال البيانات والتصميم الجرافيكي، وأسعى دائماً إلى تطوير مهاراتي واكتساب خبرات جديدة.
+
+عملت في شركة ثروة العربية – صالة مترو مارت الاقتصادية، وشركة ديار التميز – مكة المكرمة، واكتسبت خبرات عملية ساعدتني على تطوير قدراتي المهنية.
+
+أمتلك خبرة في إدخال البيانات باستخدام نظام Onyx Pro، وأهتم بالدقة والتنظيم ومراجعة البيانات.
+
+كما أمتلك مهارة ممتازة في التصميم الجرافيكي باستخدام الهاتف، ومستوى جيد جداً في التصميم باستخدام الكمبيوتر.
+
+هدفي هو الاستمرار في التعلم وتقديم أعمال تجمع بين الجودة والإبداع.`,
+          aboutMeEn: `I am Dhafran Al-Qudami, passionate about data entry and graphic design, continually striving to develop my skills and gain new experience.
+
+I worked at Tharwa Arabia – Metro Mart Economic Hall and Diyar Al-Tamayuz Company – Makkah Al-Mukarramah, gaining practical experience that helped develop my professional capabilities.
+
+I have experience in data entry using the Onyx Pro system, paying close attention to accuracy, organization, and data review.
+
+I also possess an excellent skill level in graphic design using mobile devices and a very good level in graphic design using computers.
+
+My goal is to keep learning and deliver work that combines quality and creativity.`,
+          aboutUsAr: `هذا الموقع هو منصتي الشخصية لعرض سيرتي الذاتية وخبراتي ومهاراتي وأعمالي.
+
+أنشأته ليكون مساحة مهنية تجمع بين التعريف بي واستعراض إنجازاتي ومشاركة أعمالي مع المهتمين وأصحاب فرص العمل.
+
+أسعى من خلال هذا الموقع إلى تقديم صورة واضحة ومنظمة عن مسيرتي المهنية وتطور مهاراتي.`,
+          aboutUsEn: `This website is my personal platform to showcase my CV, experience, skills, and work.
+
+I created it to serve as a professional space that introduces me, highlights my achievements, and shares my work with interested visitors and employers.
+
+Through this website, I aim to present a clear and organized picture of my career path and skill growth.`,
+          privacyPolicyAr: `يحترم هذا الموقع خصوصية الزوار ويقتصر على جمع البيانات الضرورية لتشغيل الوظائف المختارة:
+1. نموذج التواصل: يُستخدم لحفظ رسالتك (الاسم، البريد الإلكتروني، نص الرسالة) ومراجعتها. الإرسال المباشر إلى البريد الإلكتروني يتطلب ربط خدمة بريد خارجية مفعّلة.
+2. نظام المتابعين: يحفظ بريدك الإلكتروني وتاريخ الاشتراك عند موافقتك الصريحة على تلقي التحديثات، مع إمكانية إلغاء الاشتراك في أي وقت.
+3. الإحصائيات: تُسجّل أحداث التصفح والتفاعل محلياً داخل الجلسة/المتصفح دون استخدام خدمات تحليل أو إعلانات أو تتبع خارجية غير مفعّلة.`,
+          privacyPolicyEn: `This website respects visitor privacy and collects only data needed for enabled features:
+1. Contact Form: Stores your submitted name, email, and message for review. Live external email dispatch requires configuring an active email delivery service.
+2. Followers System: Stores your email and subscription date upon explicit consent to receive updates, with easy unsubscribe support.
+3. Analytics: Records real session/browser interactions locally without unconfigured third-party trackers or advertising scripts.`
+        },
+        pageOrder: PAGE_DEFINITIONS.map((p) => p.id),
+        pages: pagesConfig,
+        skills: [
+          {
+            id: 'sk_1',
+            nameAr: 'إدخال البيانات باستخدام نظام Onyx Pro',
+            nameEn: 'Data Entry via Onyx Pro System',
+            level: 95,
+            ratingLabelAr: 'متقدم / دقيق',
+            ratingLabelEn: 'Advanced / Accurate',
+            categoryAr: 'البيانات والأنظمة',
+            categoryEn: 'Data & Systems'
+          },
+          {
+            id: 'sk_2',
+            nameAr: 'التعامل مع البيانات وتنظيمها ومراجعتها',
+            nameEn: 'Data Handling, Organization & Review',
+            level: 94,
+            ratingLabelAr: 'عالي الدقة',
+            ratingLabelEn: 'High Precision',
+            categoryAr: 'البيانات والأنظمة',
+            categoryEn: 'Data & Systems'
+          },
+          {
+            id: 'sk_3',
+            nameAr: 'التصميم الجرافيكي باستخدام الهاتف',
+            nameEn: 'Graphic Design via Mobile',
+            level: 95,
+            ratingLabelAr: 'ممتاز',
+            ratingLabelEn: 'Excellent',
+            categoryAr: 'التصميم الجرافيكي',
+            categoryEn: 'Graphic Design'
+          },
+          {
+            id: 'sk_4',
+            nameAr: 'التصميم الجرافيكي باستخدام الكمبيوتر',
+            nameEn: 'Graphic Design via Computer',
+            level: 85,
+            ratingLabelAr: 'جيد جداً',
+            ratingLabelEn: 'Very Good',
+            categoryAr: 'التصميم الجرافيكي',
+            categoryEn: 'Graphic Design'
+          }
+        ],
+        experiences: [
+          {
+            id: 'exp_1',
+            companyAr: 'شركة ثروة العربية – صالة مترو مارت الاقتصادية',
+            companyEn: 'Tharwa Arabia – Metro Mart Economic Hall',
+            roleAr: '',
+            roleEn: '',
+            locationAr: '',
+            locationEn: '',
+            startDate: '',
+            endDate: '',
+            isCurrent: false,
+            dutiesAr: 'خبرة عملية مكتسبة من العمل في صالة مترو مارت الاقتصادية التابعة لشركة ثروة العربية.',
+            dutiesEn: 'Practical experience gained working at Metro Mart Economic Hall under Tharwa Arabia.',
+            skillsAr: 'إدخال البيانات، تنظيم ومراجعة البيانات',
+            skillsEn: 'Data Entry, Data Organization & Review',
+            imageUrl: ''
+          },
+          {
+            id: 'exp_2',
+            companyAr: 'شركة ديار التميز – مكة المكرمة',
+            companyEn: 'Diyar Al-Tamayuz Company – Makkah Al-Mukarramah',
+            roleAr: '',
+            roleEn: '',
+            locationAr: 'مكة المكرمة',
+            locationEn: 'Makkah Al-Mukarramah',
+            startDate: '',
+            endDate: '',
+            isCurrent: false,
+            dutiesAr: 'خبرة عملية مكتسبة من العمل في شركة ديار التميز في مكة المكرمة.',
+            dutiesEn: 'Practical experience gained working at Diyar Al-Tamayuz Company in Makkah Al-Mukarramah.',
+            skillsAr: 'العمل الميداني والإداري، الدقة والتنظيم',
+            skillsEn: 'Operational & Administrative Work, Accuracy & Organization',
+            imageUrl: ''
+          }
+        ],
+        portfolio: [],
+        achievements: [],
+        certificates: [],
+        mediaLibrary: [
+          {
+            id: 'med_portrait',
+            title: 'الصورة الشخصية الرئيسية',
+            altText: 'صورة ظفران القدمي',
+            category: 'portrait',
+            url: DEFAULT_PORTRAIT_SVG,
+            mimeType: 'image/svg+xml',
+            sizeLabel: 'SVG Vector',
+            width: 400,
+            height: 400,
+            rotation: 0,
+            position: 'center',
+            createdAt: nowIso
+          }
+        ],
+        cvVersions: [
+          {
+            id: 'cv_general',
+            nameAr: 'سيرة ذاتية عامة',
+            nameEn: 'General CV',
+            includePortrait: true,
+            sectionsOrder: ['identity', 'about', 'skills', 'experience', 'portfolio', 'achievements', 'certificates', 'languages', 'hobbies', 'custom'],
+            visibleSections: {
+              identity: true,
+              about: true,
+              skills: true,
+              experience: true,
+              portfolio: true,
+              achievements: true,
+              certificates: true,
+              languages: true,
+              hobbies: true,
+              custom: true
+            },
+            languages: [
+              { id: 'lang_ar', nameAr: 'العربية', nameEn: 'Arabic', levelAr: 'اللغة الأم', levelEn: 'Native' }
+            ],
+            hobbies: [],
+            customSections: []
+          },
+          {
+            id: 'cv_admin',
+            nameAr: 'سيرة ذاتية إدارية وبيانات',
+            nameEn: 'Administrative & Data CV',
+            includePortrait: true,
+            sectionsOrder: ['identity', 'about', 'experience', 'skills', 'certificates', 'languages', 'hobbies', 'custom'],
+            visibleSections: {
+              identity: true,
+              about: true,
+              experience: true,
+              skills: true,
+              portfolio: false,
+              achievements: true,
+              certificates: true,
+              languages: true,
+              hobbies: false,
+              custom: true
+            },
+            languages: [
+              { id: 'lang_ar', nameAr: 'العربية', nameEn: 'Arabic', levelAr: 'اللغة الأم', levelEn: 'Native' }
+            ],
+            hobbies: [],
+            customSections: []
+          },
+          {
+            id: 'cv_design',
+            nameAr: 'سيرة ذاتية للتصميم الجرافيكي',
+            nameEn: 'Graphic Design CV',
+            includePortrait: true,
+            sectionsOrder: ['identity', 'about', 'skills', 'portfolio', 'experience', 'achievements', 'languages', 'hobbies', 'custom'],
+            visibleSections: {
+              identity: true,
+              about: true,
+              skills: true,
+              portfolio: true,
+              experience: true,
+              achievements: true,
+              certificates: false,
+              languages: true,
+              hobbies: true,
+              custom: true
+            },
+            languages: [
+              { id: 'lang_ar', nameAr: 'العربية', nameEn: 'Arabic', levelAr: 'اللغة الأم', levelEn: 'Native' }
+            ],
+            hobbies: [],
+            customSections: []
+          }
+        ],
+        activeCvId: 'cv_general',
+        cvDownloadsCount: 0,
+        followers: [],
+        messages: [],
+        notifications: [
+          {
+            id: 'notif_init',
+            type: 'system',
+            title: 'تم تهيئة المنصة بنجاح',
+            detail: 'تم إنشاء قاعدة بيانات الجلسة ولوحة التحكم الإدارية لظفران القدمي.',
+            createdAt: nowIso,
+            read: false
+          }
+        ],
+        auditLog: [
+          {
+            id: 'aud_init',
+            actor: 'النظام',
+            action: 'إنشاء المشروع الأولي',
+            target: 'كافة الصفحات والإعدادات',
+            timestamp: nowIso,
+            snapshot: null
+          }
+        ],
+        analytics: {
+          startedAt: nowIso,
+          totalVisits: 0,
+          uniqueVisitorsCount: 0,
+          knownVisitorIds: [],
+          pageViews: {},
+          dailyStats: {},
+          devices: { mobile: 0, tablet: 0, desktop: 0 },
+          browsers: {},
+          os: {},
+          referrers: {},
+          eventsLog: [],
+          cvDownloads: 0,
+          contactClicks: { phone: 0, email: 0, whatsapp: 0 },
+          socialClicks: 0,
+          messagesReceived: 0,
+          followersAdded: 0,
+          activeSessions: {}
+        }
+      };
+    }
+
+    let state = loadState();
+    let isAdminAuthenticated = false;
+    let currentAdminSection = 'dashboard';
+    let activeSettingsPageId = 'home';
+    let activeSettingsTab = 'content';
+    let analyticsPeriodFilter = 'all';
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          const initial = createInitialState();
+          saveState(initial, false);
+          return initial;
+        }
+        const parsed = JSON.parse(raw);
+        const base = createInitialState();
+        return {
+          ...base,
+          ...parsed,
+          meta: {
+            ...base.meta,
+            ...(parsed.meta || {}),
+            seoConfig: { ...base.meta.seoConfig, ...((parsed.meta && parsed.meta.seoConfig) || {}) }
+          },
+          identity: { ...base.identity, ...(parsed.identity || {}) },
+          pages: { ...base.pages, ...(parsed.pages || {}) },
+          analytics: { ...base.analytics, ...(parsed.analytics || {}) }
+        };
+      } catch (err) {
+        console.error('Error loading state:', err);
+        return createInitialState();
+      }
+    }
+
+    function saveState(nextState = state, recordNotificationOnError = true) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(nextState));
+        if (window.__firebaseSync && typeof window.__firebaseSync.push === 'function') {
+          window.__firebaseSync.push(nextState);
+        }
+        return true;
+      } catch (err) {
+        console.error('Storage save error:', err);
+        if (recordNotificationOnError) {
+          addNotification('saveError', 'فشل حفظ البيانات', 'تعذر حفظ التغييرات في مساحة التخزين المحلية (قد تكون ممتلئة).');
+        }
+        showToast('تعذر حفظ البيانات في التخزين المحلي', 'error');
+        return false;
+      }
+    }
+
+    function addNotification(type, title, detail) {
+      const notif = {
+        id: 'notif_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+        type,
+        title,
+        detail,
+        createdAt: new Date().toISOString(),
+        read: false
+      };
+      state.notifications.unshift(notif);
+      saveState();
+      updateAdminNotificationBadge();
+    }
+
+    function addAuditLog(action, target, snapshotObj = null) {
+      state.auditLog.unshift({
+        id: 'aud_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+        actor: 'ظفران القدمي (المدير)',
+        action,
+        target,
+        timestamp: new Date().toISOString(),
+        snapshot: snapshotObj ? JSON.parse(JSON.stringify(snapshotObj)) : null
+      });
+      if (state.auditLog.length > 100) {
+        state.auditLog = state.auditLog.slice(0, 100);
+      }
+      saveState();
+    }
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const el = document.createElement('div');
+      const colors = type === 'error'
+        ? 'border-rose-400/60 bg-rose-950/90 text-rose-100'
+        : type === 'warning'
+        ? 'border-amber-400/60 bg-amber-950/90 text-amber-100'
+        : 'border-goldLux/60 bg-navyDeep/95 text-crispWhite';
+
+      el.className = `pointer-events-auto glass-card border ${colors} px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 text-xs sm:text-sm font-semibold page-enter`;
+      const iconName = type === 'error' ? 'alert-circle' : type === 'warning' ? 'alert-triangle' : 'check-circle-2';
+      el.innerHTML = `<i data-lucide="${iconName}" class="w-4 h-4 text-goldLux shrink-0"></i><span class="flex-1">${escapeHtml(message)}</span>`;
+      container.appendChild(el);
+      lucide.createIcons();
+
+      setTimeout(() => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(8px)';
+        el.style.transition = 'all 0.3s ease';
+        setTimeout(() => el.remove(), 300);
+      }, 3600);
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function formatMultiline(text) {
+      return escapeHtml(text || '').replace(/\n/g, '<br />');
+    }
+
+    function isArabic() {
+      return state.meta.language === 'ar';
+    }
+
+    function t(arText, enText) {
+      return isArabic() ? arText : (enText || arText);
+    }
+
+    function getActiveVisitorsLast5Min() {
+      const fiveMinAgo = Date.now() - 5 * 60 * 1000;
+      let count = 0;
+      Object.values(state.analytics.activeSessions || {}).forEach((ts) => {
+        if (ts >= fiveMinAgo) count += 1;
+      });
+      return Math.max(count, 1);
+    }
+
+    function openModal(innerHtml) {
+      const backdrop = document.getElementById('modal-backdrop');
+      const content = document.getElementById('modal-content');
+      content.innerHTML = innerHtml;
+      backdrop.classList.remove('hidden');
+      backdrop.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      const backdrop = document.getElementById('modal-backdrop');
+      backdrop.classList.add('hidden');
+      backdrop.classList.remove('flex');
+    }
+
+    const ADMIN_MENU_ITEMS = [
+      { id: 'dashboard', ar: 'لوحة التحكم الرئيسية', icon: 'layout-dashboard' },
+      { id: 'pages_manager', ar: 'إدارة الصفحات', icon: 'file-stack' },
+      { id: 'seo_indexing', ar: 'النشر في قوقل والـ SEO', icon: 'search-check' },
+      { id: 'social_manager', ar: 'حسابات التواصل الاجتماعي', icon: 'share-2' },
+      { id: 'cv_manager', ar: 'إدارة السيرة الذاتية', icon: 'file-badge' },
+      { id: 'skills_exp', ar: 'المهارات والخبرات', icon: 'briefcase' },
+      { id: 'portfolio_admin', ar: 'معرض الأعمال', icon: 'images' },
+      { id: 'achievements_admin', ar: 'الإنجازات والمشاريع', icon: 'trophy' },
+      { id: 'certificates_admin', ar: 'الشهادات والدورات', icon: 'award' },
+      { id: 'media_library', ar: 'مكتبة الصور والملفات', icon: 'folder-open' },
+      { id: 'messages', ar: 'الرسائل', icon: 'mail' },
+      { id: 'followers', ar: 'المتابعون', icon: 'users' },
+      { id: 'analytics', ar: 'إحصائيات الزوار', icon: 'bar-chart-3' },
+      { id: 'reports', ar: 'التقارير', icon: 'file-spreadsheet' },
+      { id: 'digital_id_admin', ar: 'إدارة بطاقة التعريف الرقمية', icon: 'qr-code' },
+      { id: 'pdf_admin', ar: 'إدارة السيرة الذاتية PDF', icon: 'printer' },
+      { id: 'settings', ar: 'الإعدادات', icon: 'settings' },
+      { id: 'backup_restore', ar: 'النسخ الاحتياطي والاستعادة', icon: 'database-backup' },
+      { id: 'audit_log', ar: 'سجل التعديلات', icon: 'history' },
+      { id: 'account_roles', ar: 'إدارة الحساب والصلاحيات', icon: 'shield' },
+      { id: 'logout_action', ar: 'تسجيل الخروج', icon: 'log-out' }
+    ];
+
+    const ADMIN_PASSWORD_STORAGE_KEY = 'dhafran_admin_password_v1';
+
+    function togglePasswordVisibility(inputId, button) {
+      const field = document.getElementById(inputId);
+      if (!field) return;
+      const show = field.type === 'password';
+      field.type = show ? 'text' : 'password';
+      if (button) {
+        button.setAttribute('aria-label', show ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور');
+        button.innerHTML = show ? '<i data-lucide="eye-off" class="w-4 h-4"></i>' : '<i data-lucide="eye" class="w-4 h-4"></i>';
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    function getAdminPassword() {
+      try {
+        return localStorage.getItem(ADMIN_PASSWORD_STORAGE_KEY) || 'Dhafran@2026';
+      } catch (err) {
+        return 'Dhafran@2026';
+      }
+    }
+
+    function changeAdminPassword(event) {
+      if (event) event.preventDefault();
+
+      const currentPassword = document.getElementById('admin-current-password')?.value || '';
+      const newPassword = document.getElementById('admin-new-password')?.value || '';
+      const confirmPassword = document.getElementById('admin-confirm-password')?.value || '';
+
+      if (currentPassword !== getAdminPassword()) {
+        showToast('كلمة المرور الحالية غير صحيحة', 'error');
+        return;
+      }
+      if (newPassword.length < 8) {
+        showToast('كلمة المرور الجديدة يجب ألا تقل عن 8 أحرف', 'warning');
+        return;
+      }
+      if (newPassword !== confirmPassword) {
+        showToast('تأكيد كلمة المرور غير مطابق', 'error');
+        return;
+      }
+      if (newPassword === currentPassword) {
+        showToast('اختر كلمة مرور مختلفة عن الحالية', 'warning');
+        return;
+      }
+
+      try {
+        localStorage.setItem(ADMIN_PASSWORD_STORAGE_KEY, newPassword);
+        addAuditLog('تغيير كلمة مرور لوحة التحكم', 'حساب المدير');
+        showToast('تم تغيير كلمة المرور بنجاح');
+        const form = document.getElementById('change-admin-password-form');
+        if (form) form.reset();
+      } catch (err) {
+        showToast('تعذر حفظ كلمة المرور في هذا المتصفح', 'error');
+      }
+    }
+
+    function openAdminGate() {
+      if (isAdminAuthenticated) {
+        openAdminDashboard();
+        return;
+      }
+      openModal(`
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5 text-goldLux">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+            <h3 class="text-xl font-extrabold text-crispWhite">تسجيل الدخول إلى لوحة التحكم</h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            أدخل رمز الدخول الإداري للوصول إلى لوحة تحكم «ظفران القدمي». (ملاحظة: في بيئة الإنتاج الحقيقية يُنصح بربط مصادقة خادمية مثل Firebase Auth أو Supabase Auth).
+          </p>
+          <form onsubmit="verifyAdminLogin(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-goldLux mb-1">اسم المستخدم / البريد</label>
+              <input id="admin-login-user" type="text" value="dhafran1alqudami@gmail.com" required class="w-full px-4 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-goldLux mb-1">كلمة المرور الإدارية</label>
+              <div class="relative">
+                <input id="admin-login-pass" type="password" autocomplete="current-password" required placeholder="أدخل كلمة المرور" class="w-full px-4 py-2.5 pl-12 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                <button type="button" onclick="togglePasswordVisibility('admin-login-pass',this)" aria-label="إظهار كلمة المرور" class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-goldLux hover:text-white" title="إظهار أو إخفاء كلمة المرور"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-goldLux to-amber-500 text-navyDeep font-extrabold text-sm shadow-gold">
+                دخول لوحة التحكم
+              </button>
+              <a href="index.html" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-crispWhite font-bold text-xs sm:text-sm text-center">
+                العودة للموقع العام
+              </a>
+            </div>
+          </form>
+        </div>
+      `);
+    }
+
+    function verifyAdminLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById('admin-login-pass').value;
+      if (pass === getAdminPassword()) {
+        isAdminAuthenticated = true;
+        sessionStorage.setItem('dhafran_admin_authed', '1');
+        closeModal();
+        openAdminDashboard();
+        showToast('تم تسجيل الدخول إلى لوحة التحكم بنجاح');
+      } else {
+        showToast('كلمة المرور غير صحيحة', 'error');
+      }
+    }
+
+    function logoutAdmin() {
+      isAdminAuthenticated = false;
+      sessionStorage.removeItem('dhafran_admin_authed');
+      document.getElementById('admin-shell').classList.add('hidden');
+      showToast('تم تسجيل الخروج من لوحة التحكم');
+      openAdminGate();
+    }
+
+    function openAdminDashboard() {
+      document.getElementById('admin-shell').classList.remove('hidden');
+      renderAdminMenu();
+      renderAdminSection(currentAdminSection);
+      updateAdminNotificationBadge();
+    }
+
+    function closeAdminDashboard() {
+      window.location.href = 'index.html';
+    }
+
+    function toggleAdminSidebar() {
+      const sb = document.getElementById('admin-sidebar');
+      sb.classList.toggle('translate-x-full');
+    }
+
+    function updateAdminNotificationBadge() {
+      const unread = state.notifications.filter((n) => !n.read).length;
+      const badge = document.getElementById('admin-unread-badge');
+      if (badge) badge.textContent = `${unread} إشعار`;
+    }
+
+    function renderAdminMenu() {
+      const list = document.getElementById('admin-menu-list');
+      list.innerHTML = ADMIN_MENU_ITEMS.map((item) => {
+        if (item.id === 'logout_action') {
+          return `<button onclick="logoutAdmin()" class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-rose-300 hover:bg-rose-500/15 transition text-right font-semibold mt-2"><i data-lucide="${item.icon}" class="w-4 h-4"></i><span>${item.ar}</span></button>`;
+        }
+        const active = currentAdminSection === item.id;
+        return `<button onclick="selectAdminSection('${item.id}')" class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl transition text-right font-bold ${active ? 'bg-goldLux text-navyDeep shadow-gold' : 'text-slate-200 hover:bg-white/5 hover:text-goldLux'}"><i data-lucide="${item.icon}" class="w-4 h-4 shrink-0"></i><span class="truncate">${item.ar}</span></button>`;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function selectAdminSection(sectionId) {
+      currentAdminSection = sectionId;
+      renderAdminMenu();
+      renderAdminSection(sectionId);
+      const sb = document.getElementById('admin-sidebar');
+      if (!sb.classList.contains('translate-x-full')) {
+        sb.classList.add('translate-x-full');
+      }
+    }
+
+    function renderAdminSection(sectionId) {
+      const menuObj = sectionId === 'notifications'
+        ? { id: 'notifications', ar: 'مركز الإشعارات والتنبيهات' }
+        : (ADMIN_MENU_ITEMS.find((m) => m.id === sectionId) || ADMIN_MENU_ITEMS[0]);
+      document.getElementById('admin-current-section-title').textContent = menuObj.ar;
+      const ws = document.getElementById('admin-workspace');
+
+      switch (sectionId) {
+        case 'dashboard': ws.innerHTML = renderAdminOverview(); break;
+        case 'pages_manager': ws.innerHTML = renderAdminPagesManager(); break;
+        case 'seo_indexing': ws.innerHTML = renderAdminSeoAndGooglePublish(); break;
+        case 'social_manager': ws.innerHTML = renderAdminSocialLinksManager(); break;
+        case 'cv_manager': ws.innerHTML = renderAdminCvManager(); break;
+        case 'skills_exp': ws.innerHTML = renderAdminSkillsAndExp(); break;
+        case 'portfolio_admin': ws.innerHTML = renderAdminCollectionManager('portfolio', 'معرض الأعمال والتصاميم'); break;
+        case 'achievements_admin': ws.innerHTML = renderAdminCollectionManager('achievements', 'الإنجازات والمشاريع'); break;
+        case 'certificates_admin': ws.innerHTML = renderAdminCertificatesManager(); break;
+        case 'media_library': ws.innerHTML = renderAdminMediaLibrary(); break;
+        case 'messages': ws.innerHTML = renderAdminMessages(); break;
+        case 'followers': ws.innerHTML = renderAdminFollowers(); break;
+        case 'analytics': ws.innerHTML = renderAdminAnalytics(); break;
+        case 'reports': ws.innerHTML = renderAdminReports(); break;
+        case 'digital_id_admin': ws.innerHTML = renderAdminDigitalIdSettings(); break;
+        case 'pdf_admin': ws.innerHTML = renderAdminPdfSettings(); break;
+        case 'settings': ws.innerHTML = renderAdminCentralSettings(); break;
+        case 'backup_restore': ws.innerHTML = renderAdminBackupRestore(); break;
+        case 'audit_log': ws.innerHTML = renderAdminAuditLog(); break;
+        case 'account_roles': ws.innerHTML = renderAdminAccountRoles(); break;
+        case 'notifications': ws.innerHTML = renderAdminNotifications(); break;
+        default: ws.innerHTML = renderAdminOverview();
+      }
+      lucide.createIcons();
+    }
+
+    // =========================================================================
+    // New Feature 1: Publish to Google, SEO, Keywords & Indexing
+    // =========================================================================
+    function buildSitemapXml() {
+      const seoCfg = state.meta.seoConfig || {};
+      const baseUrl = (state.meta.siteUrl || 'https://dhafran-alqudami.example').replace(/\/+$/, '');
+      const lastmod = new Date().toISOString().slice(0, 10);
+      const urls = state.pageOrder
+        .map((id) => state.pages[id])
+        .filter((p) => p && p.visible && p.inSitemap !== false && seoCfg.allowIndexing !== false && p.indexable !== false)
+        .map((p) => {
+          const loc = p.canonicalUrl || (baseUrl + (p.slug === '/' ? '/' : (p.slug || '')));
+          return `  <url>\n    <loc>${escapeHtml(loc)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${p.id === 'home' ? '1.0' : '0.8'}</priority>\n  </url>`;
+        }).join('\n');
+
+      return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
+    }
+
+    function buildRobotsTxt() {
+      const seoCfg = state.meta.seoConfig || {};
+      const baseUrl = (state.meta.siteUrl || 'https://dhafran-alqudami.example').replace(/\/+$/, '');
+      if (seoCfg.allowIndexing === false) {
+        return `User-agent: *\nDisallow: /\nSitemap: ${baseUrl}/sitemap.xml`;
+      }
+      return `User-agent: *\nAllow: /\nDisallow: /admin.html\nSitemap: ${baseUrl}/sitemap.xml`;
+    }
+
+    function renderAdminSeoAndGooglePublish() {
+      const seoCfg = state.meta.seoConfig || {};
+      const homePage = state.pages.home || {};
+      const sitemapXml = buildSitemapXml();
+      const robotsTxt = buildRobotsTxt();
+
+      return `
+        <div class="space-y-6">
+          <div class="glass-card p-6 space-y-5 border-goldLux/45">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-extrabold text-goldLux">النشر في قوقل وتحسين محرك البحث (SEO) والكلمات المفتاحية والفهرسة</h3>
+                <p class="text-xs text-slate-300 mt-1">إدارة الكلمات المفتاحية، بيانات الفهرسة، خريطة الموقع Sitemap، وروابط أدوات مشرفي المواقع في قوقل.</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-bold ${seoCfg.allowIndexing !== false ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/30' : 'bg-rose-500/20 text-rose-300 border border-rose-400/30'}">
+                ${seoCfg.allowIndexing !== false ? 'الفهرسة مفعّلة (Index)' : 'الفهرسة متوقفة (Noindex)'}
+              </span>
+            </div>
+
+            <form onsubmit="saveSeoAndIndexingSettings(event)" class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-goldLux mb-1">رابط الموقع الرسمي (Site URL)</label>
+                  <input id="seo-site-url" type="url" value="${escapeHtml(state.meta.siteUrl || '')}" placeholder="https://example.com" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-goldLux mb-1">رمز التحقق من Google Search Console</label>
+                  <input id="seo-gsc-code" type="text" value="${escapeHtml(seoCfg.googleSearchConsoleCode || '')}" placeholder="google-site-verification=..." class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-goldLux mb-1">عنوان الصفحة الرئيسية في قوقل (عربي)</label>
+                  <input id="seo-home-title-ar" type="text" value="${escapeHtml(homePage.seoTitleAr || '')}" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-goldLux mb-1">عنوان الصفحة الرئيسية في قوقل (إنجليزي)</label>
+                  <input id="seo-home-title-en" type="text" value="${escapeHtml(homePage.seoTitleEn || '')}" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-xs font-bold text-goldLux mb-1">وصف محرك البحث (Meta Description - عربي)</label>
+                  <textarea id="seo-home-desc-ar" rows="2" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite">${escapeHtml(homePage.seoDescAr || '')}</textarea>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-xs font-bold text-goldLux mb-1">الكلمات المفتاحية للموقع (عربي — مفصولة بفاصلة)</label>
+                  <textarea id="seo-keywords-ar" rows="2" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite">${escapeHtml(seoCfg.globalKeywordsAr || '')}</textarea>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-xs font-bold text-goldLux mb-1">Keywords (English — Comma separated)</label>
+                  <textarea id="seo-keywords-en" rows="2" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite">${escapeHtml(seoCfg.globalKeywordsEn || '')}</textarea>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-6 pt-1">
+                <label class="flex items-center gap-2 text-xs sm:text-sm font-bold cursor-pointer">
+                  <input id="seo-allow-indexing" type="checkbox" ${seoCfg.allowIndexing !== false ? 'checked' : ''} class="accent-goldLux w-4 h-4" />
+                  <span>السماح لمحركات البحث بفهرسة الموقع (Index, Follow)</span>
+                </label>
+                <label class="flex items-center gap-2 text-xs sm:text-sm font-bold cursor-pointer">
+                  <input id="seo-auto-sitemap" type="checkbox" ${seoCfg.autoGenerateSitemap !== false ? 'checked' : ''} class="accent-goldLux w-4 h-4" />
+                  <span>توليد خريطة الموقع Sitemap تلقائياً للصفحات المفعّلة</span>
+                </label>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <button type="submit" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-goldLux to-amber-500 text-navyDeep font-extrabold text-xs sm:text-sm shadow-gold hover:brightness-110 transition">
+                  حفظ إعدادات SEO والفهرسة
+                </button>
+                <button type="button" onclick="prepareGooglePublishSubmission()" class="px-5 py-2.5 rounded-xl bg-royalBlue/70 hover:bg-royalBlue border border-goldLux/40 text-goldLux font-extrabold text-xs sm:text-sm transition">
+                  تجهيز والنشر في قوقل (Search Console)
+                </button>
+              </div>
+
+              ${seoCfg.googlePublishedAt ? `
+                <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-400/30 text-xs text-emerald-200">
+                  آخر تجهيز للنشر في قوقل: <strong>${escapeHtml(new Date(seoCfg.googlePublishedAt).toLocaleString('ar-SA'))}</strong>
+                </div>
+              ` : ''}
+            </form>
+          </div>
+
+          <!-- Per-Page Indexing Control -->
+          <div class="glass-card p-6 space-y-4">
+            <h4 class="text-base font-extrabold text-goldLux">فهرسة الصفحات وخريطة الموقع (Per-Page Indexing)</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              ${state.pageOrder.map((pageId) => {
+                const p = state.pages[pageId];
+                if (!p) return '';
+                return `
+                  <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between gap-2 text-xs">
+                    <div>
+                      <div class="font-bold text-crispWhite">${escapeHtml(p.titleAr)}</div>
+                      <div class="text-[11px] text-slate-400">${escapeHtml(p.slug)}</div>
+                    </div>
+                    <button onclick="togglePageIndexable('${pageId}')" class="px-2.5 py-1 rounded-lg font-bold ${p.indexable !== false ? 'bg-emerald-500/20 text-emerald-300' : 'bg-rose-500/20 text-rose-300'}">
+                      ${p.indexable !== false ? 'Index' : 'Noindex'}
+                    </button>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- Sitemap XML & Robots.txt -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="glass-card p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-extrabold text-goldLux">خريطة الموقع (sitemap.xml)</h4>
+                <button onclick="downloadSeoFile('sitemap.xml', buildSitemapXml(), 'application/xml')" class="px-3 py-1.5 rounded-lg bg-goldLux text-navyDeep text-xs font-extrabold">تحميل sitemap.xml</button>
+              </div>
+              <pre class="p-3 rounded-xl bg-navyDeep border border-white/10 text-[11px] text-slate-200 overflow-x-auto max-h-56" dir="ltr">${escapeHtml(sitemapXml)}</pre>
+            </div>
+
+            <div class="glass-card p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-extrabold text-goldLux">ملف الزحف (robots.txt)</h4>
+                <button onclick="downloadSeoFile('robots.txt', buildRobotsTxt(), 'text/plain')" class="px-3 py-1.5 rounded-lg bg-goldLux text-navyDeep text-xs font-extrabold">تحميل robots.txt</button>
+              </div>
+              <pre class="p-3 rounded-xl bg-navyDeep border border-white/10 text-[11px] text-slate-200 overflow-x-auto max-h-56" dir="ltr">${escapeHtml(robotsTxt)}</pre>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function saveSeoAndIndexingSettings(e) {
+      e.preventDefault();
+      const prev = JSON.parse(JSON.stringify(state.meta));
+      const siteUrl = (document.getElementById('seo-site-url').value || '').trim() || 'https://dhafran-alqudami.example';
+      const gscCode = (document.getElementById('seo-gsc-code').value || '').trim();
+      const titleAr = (document.getElementById('seo-home-title-ar').value || '').trim();
+      const titleEn = (document.getElementById('seo-home-title-en').value || '').trim();
+      const descAr = (document.getElementById('seo-home-desc-ar').value || '').trim();
+      const kwAr = (document.getElementById('seo-keywords-ar').value || '').trim();
+      const kwEn = (document.getElementById('seo-keywords-en').value || '').trim();
+      const allowIndexing = document.getElementById('seo-allow-indexing').checked;
+      const autoGenerateSitemap = document.getElementById('seo-auto-sitemap').checked;
+
+      state.meta.siteUrl = siteUrl;
+      state.meta.seoConfig = {
+        ...state.meta.seoConfig,
+        googleSearchConsoleCode: gscCode,
+        globalKeywordsAr: kwAr,
+        globalKeywordsEn: kwEn,
+        allowIndexing,
+        autoGenerateSitemap
+      };
+
+      if (state.pages.home) {
+        if (titleAr) state.pages.home.seoTitleAr = titleAr;
+        if (titleEn) state.pages.home.seoTitleEn = titleEn;
+        if (descAr) state.pages.home.seoDescAr = descAr;
+      }
+
+      addAuditLog('تحديث إعدادات النشر في قوقل والـ SEO والفهرسة', 'تحسين محرك البحث', prev);
+      saveState();
+      showToast('تم حفظ إعدادات SEO والكلمات المفتاحية والفهرسة بنجاح');
+      renderAdminSection('seo_indexing');
+    }
+
+    function togglePageIndexable(pageId) {
+      const p = state.pages[pageId];
+      if (!p) return;
+      p.indexable = p.indexable === false ? true : false;
+      addAuditLog('تغيير حالة فهرسة صفحة', `${p.titleAr} (${p.indexable ? 'Index' : 'Noindex'})`);
+      saveState();
+      renderAdminSection('seo_indexing');
+    }
+
+    function downloadSeoFile(filename, content, mimeType) {
+      const blob = new Blob([content], { type: `${mimeType};charset=utf-8;` });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+      showToast(`تم تحميل ملف ${filename}`);
+    }
+
+    function prepareGooglePublishSubmission() {
+      state.meta.seoConfig.googlePublishedAt = new Date().toISOString();
+      addAuditLog('تجهيز وتحديث بيانات النشر في قوقل', 'Google Search Console & Sitemap');
+      saveState();
+      const siteUrl = encodeURIComponent((state.meta.siteUrl || 'https://dhafran-alqudami.example').replace(/\/+$/, ''));
+      const gscUrl = `https://search.google.com/search-console?resource_id=${siteUrl}`;
+      openModal(`
+        <div class="space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">تجهيز نشر الموقع في قوقل</h3>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+            تم تحديث بيانات الـ SEO والكلمات المفتاحية وتوليد ملفات <strong>sitemap.xml</strong> و<strong>robots.txt</strong>. لطلب أرشفة موقعك مباشرة في فهرس قوقل، افتح Google Search Console وأضف نطاق موقعك وارفع خريطة الموقع.
+          </p>
+          <div class="p-3 rounded-xl bg-white/5 border border-goldLux/25 text-xs text-slate-300 space-y-1">
+            <div><strong>رابط الموقع:</strong> <span dir="ltr">${escapeHtml(state.meta.siteUrl)}</span></div>
+            <div><strong>رابط Sitemap المقترح:</strong> <span dir="ltr">${escapeHtml((state.meta.siteUrl || '').replace(/\/+$/, ''))}/sitemap.xml</span></div>
+          </div>
+          <div class="flex flex-wrap gap-3 justify-end">
+            <button onclick="downloadSeoFile('sitemap.xml', buildSitemapXml(), 'application/xml')" class="px-4 py-2 rounded-xl bg-white/10 text-xs font-bold">تحميل Sitemap</button>
+            <a href="${gscUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-gradient-to-r from-goldLux to-amber-500 text-navyDeep text-xs font-extrabold shadow-gold">فتح Google Search Console</a>
+          </div>
+        </div>
+      `);
+      renderAdminSection('seo_indexing');
+    }
+
+    // =========================================================================
+    // New Feature 2: Social Media Accounts Manager
+    // =========================================================================
+    function renderAdminSocialLinksManager() {
+      const links = state.meta.socialLinks || [];
+      return `
+        <div class="glass-card p-6 space-y-6">
+          <div>
+            <h3 class="text-lg font-extrabold text-goldLux">إدارة ورفع حسابات التواصل الاجتماعي</h3>
+            <p class="text-xs text-slate-300 mt-1">أضف حساباتك على منصات التواصل الاجتماعي ليتم عرضها وتحديثها تلقائياً في الموقع العام.</p>
+          </div>
+
+          <form onsubmit="addSocialAccount(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+            <select id="soc-platform" class="sm:col-span-3 px-3 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite">
+              <option value="whatsapp">واتساب (WhatsApp)</option>
+              <option value="instagram">إنستغرام (Instagram)</option>
+              <option value="twitter">إكس / تويتر (X)</option>
+              <option value="linkedin">لينكدإن (LinkedIn)</option>
+              <option value="youtube">يوتيوب (YouTube)</option>
+              <option value="tiktok">تيك توك (TikTok)</option>
+              <option value="snapchat">سناب شات (Snapchat)</option>
+              <option value="telegram">تيليجرام (Telegram)</option>
+              <option value="website">موقع / منصة أخرى</option>
+            </select>
+            <input id="soc-label" type="text" required placeholder="اسم الحساب أو المنصة (مثال: Instagram)" class="sm:col-span-3 px-3 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+            <input id="soc-url" type="url" required placeholder="https://..." class="sm:col-span-4 px-3 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+            <button type="submit" class="sm:col-span-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-goldLux to-amber-500 text-navyDeep font-extrabold text-xs sm:text-sm shadow-gold">
+              إضافة الحساب
+            </button>
+          </form>
+
+          <div class="space-y-2.5">
+            ${links.length === 0 ? `<p class="text-sm text-slate-400">لا توجد حسابات تواصل اجتماعي مضافة حالياً.</p>` : links.map((s) => `
+              <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-3">
+                <div class="space-y-0.5">
+                  <div class="text-sm font-bold text-crispWhite">${escapeHtml(s.label)} <span class="text-xs text-goldLux">(${escapeHtml(s.platform || 'link')})</span></div>
+                  <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-300 hover:underline break-all" dir="ltr">${escapeHtml(s.url)}</a>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button onclick="toggleSocialAccount('${s.id}')" class="px-3 py-1.5 rounded-lg text-xs font-bold ${s.enabled ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/30' : 'bg-white/10 text-slate-300'}">
+                    ${s.enabled ? 'ظاهر في الموقع' : 'مخفي'}
+                  </button>
+                  <button onclick="deleteSocialAccount('${s.id}')" class="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 text-xs font-bold">
+                    حذف
+                  </button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function addSocialAccount(e) {
+      e.preventDefault();
+      const platform = document.getElementById('soc-platform').value;
+      const label = document.getElementById('soc-label').value.trim();
+      const url = document.getElementById('soc-url').value.trim();
+      if (!label || !url) return;
+
+      if (!Array.isArray(state.meta.socialLinks)) state.meta.socialLinks = [];
+      state.meta.socialLinks.push({
+        id: 'soc_' + Date.now(),
+        platform,
+        label,
+        url,
+        enabled: true
+      });
+      addAuditLog('إضافة حساب تواصل اجتماعي', `${label} (${url})`);
+      saveState();
+      showToast('تمت إضافة حساب التواصل الاجتماعي وتحديث الموقع');
+      renderAdminSection('social_manager');
+    }
+
+    function toggleSocialAccount(id) {
+      const item = (state.meta.socialLinks || []).find((s) => s.id === id);
+      if (!item) return;
+      item.enabled = !item.enabled;
+      addAuditLog('تغيير حالة حساب تواصل اجتماعي', item.label);
+      saveState();
+      renderAdminSection('social_manager');
+    }
+
+    function deleteSocialAccount(id) {
+      state.meta.socialLinks = (state.meta.socialLinks || []).filter((s) => s.id !== id);
+      addAuditLog('حذف حساب تواصل اجتماعي', id);
+      saveState();
+      showToast('تم حذف الحساب');
+      renderAdminSection('social_manager');
+    }
+
+    // =========================================================================
+    // Existing Admin Sections (Preserved Intact)
+    // =========================================================================
+    function renderAdminOverview() {
+      const unreadMsgs = state.messages.filter((m) => m.status === 'unread').length;
+      const activeFollowers = state.followers.filter((f) => f.active).length;
+
+      return `
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div class="glass-card p-5 space-y-1">
+            <div class="text-xs text-slate-300">إجمالي الزيارات الحقيقية</div>
+            <div class="text-3xl font-black text-goldLux">${state.analytics.totalVisits}</div>
+            <div class="text-[11px] text-slate-400">الزوار الفريدون: ${state.analytics.uniqueVisitorsCount}</div>
+          </div>
+          <div class="glass-card p-5 space-y-1">
+            <div class="text-xs text-slate-300">الرسائل غير المقروءة</div>
+            <div class="text-3xl font-black text-goldLux">${unreadMsgs}</div>
+            <div class="text-[11px] text-slate-400">إجمالي الرسائل: ${state.messages.length}</div>
+          </div>
+          <div class="glass-card p-5 space-y-1">
+            <div class="text-xs text-slate-300">المتابعون النشطون</div>
+            <div class="text-3xl font-black text-goldLux">${activeFollowers}</div>
+            <div class="text-[11px] text-slate-400">مشاريع المعرض: ${state.portfolio.length}</div>
+          </div>
+          <div class="glass-card p-5 space-y-1">
+            <div class="text-xs text-slate-300">تحميلات السيرة الذاتية</div>
+            <div class="text-3xl font-black text-goldLux">${state.cvDownloadsCount}</div>
+            <div class="text-[11px] text-slate-400">نسخ السيرة: ${state.cvVersions.length}</div>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">الهوية الشخصية والمهنية السريعة</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">الاسم (عربي)</label>
+              <input id="quick-name-ar" type="text" value="${escapeHtml(state.identity.nameAr)}" class="w-full px-3.5 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">الاسم (إنجليزي)</label>
+              <input id="quick-name-en" type="text" value="${escapeHtml(state.identity.nameEn)}" class="w-full px-3.5 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">المسمى المهني (عربي)</label>
+              <input id="quick-role-ar" type="text" value="${escapeHtml(state.identity.roleAr)}" class="w-full px-3.5 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">المسمى المهني (إنجليزي)</label>
+              <input id="quick-role-en" type="text" value="${escapeHtml(state.identity.roleEn)}" class="w-full px-3.5 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            </div>
+          </div>
+          <button onclick="saveQuickIdentity()" class="px-5 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm shadow-gold">
+            حفظ الهوية وتحديث الموقع
+          </button>
+        </div>
+      `;
+    }
+
+    function saveQuickIdentity() {
+      const prev = { ...state.identity };
+      state.identity.nameAr = document.getElementById('quick-name-ar').value.trim();
+      state.identity.nameEn = document.getElementById('quick-name-en').value.trim();
+      state.identity.roleAr = document.getElementById('quick-role-ar').value.trim();
+      state.identity.roleEn = document.getElementById('quick-role-en').value.trim();
+      addAuditLog('تحديث الهوية الشخصية السريعة', 'الهوية الأساسية', prev);
+      saveState();
+      showToast('تم حفظ بيانات الهوية وتحديث الموقع');
+    }
+
+    function renderAdminPagesManager() {
+      return `
+        <div class="glass-card p-6 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="text-lg font-extrabold text-goldLux">إدارة الصفحات والترتيب والظهور</h3>
+              <p class="text-xs text-slate-300">تحكم في إظهار أو إخفاء أي صفحة، وتعديل عنوانها، وترتيبها في القوائم.</p>
+            </div>
+          </div>
+          <div class="space-y-2.5">
+            ${state.pageOrder.map((pageId, index) => {
+              const p = state.pages[pageId];
+              return `
+                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-3">
+                  <div class="flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-goldLux/15 text-goldLux text-xs font-bold flex items-center justify-center">${index + 1}</span>
+                    <div>
+                      <div class="text-sm font-bold text-crispWhite">${escapeHtml(p.titleAr)} <span class="text-xs text-slate-400">(${escapeHtml(p.titleEn)})</span></div>
+                      <div class="text-[11px] text-slate-400">${escapeHtml(p.slug)}</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button onclick="movePageOrder('${pageId}', -1)" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs" title="لأعلى">↑</button>
+                    <button onclick="movePageOrder('${pageId}', 1)" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs" title="لأسفل">↓</button>
+                    <button onclick="togglePageVisibility('${pageId}')" class="px-3 py-1.5 rounded-lg text-xs font-bold ${p.visible ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/30' : 'bg-rose-500/20 text-rose-300 border border-rose-400/30'}">
+                      ${p.visible ? 'ظاهرة' : 'مخفية'}
+                    </button>
+                    <button onclick="openPageSettingsFromManager('${pageId}')" class="px-3 py-1.5 rounded-lg bg-goldLux/20 text-goldLux text-xs font-bold">
+                      إعدادات الصفحة
+                    </button>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function movePageOrder(pageId, delta) {
+      const idx = state.pageOrder.indexOf(pageId);
+      const targetIdx = idx + delta;
+      if (idx < 0 || targetIdx < 0 || targetIdx >= state.pageOrder.length) return;
+      const copy = [...state.pageOrder];
+      const [removed] = copy.splice(idx, 1);
+      copy.splice(targetIdx, 0, removed);
+      state.pageOrder = copy;
+      saveState();
+      renderAdminSection('pages_manager');
+    }
+
+    function togglePageVisibility(pageId) {
+      if (pageId === 'home') {
+        showToast('لا يمكن إخفاء الصفحة الرئيسية', 'warning');
+        return;
+      }
+      state.pages[pageId].visible = !state.pages[pageId].visible;
+      addAuditLog('تغيير حالة ظهور صفحة', state.pages[pageId].titleAr);
+      saveState();
+      renderAdminSection('pages_manager');
+    }
+
+    function openPageSettingsFromManager(pageId) {
+      activeSettingsPageId = pageId;
+      activeSettingsTab = 'content';
+      currentAdminSection = 'settings';
+      renderAdminMenu();
+      renderAdminSection('settings');
+    }
+
+    function renderAdminCentralSettings() {
+      const pageList = Object.values(state.pages);
+      const generalCards = [
+        { key: 'identity', title: 'الهوية الشخصية', desc: 'الاسم، المسمى المهني، النصوص التعريفية، والصورة الشخصية' },
+        { key: 'theme_motion', title: 'الألوان والخطوط والوضع الليلي والحركات', desc: 'الوضع الليلي/النهاري، تشغيل/إيقاف الحركات، المؤشر المخصص، والجزيئات' },
+        { key: 'whatsapp_contact', title: 'واتساب والتواصل والبريد', desc: 'إعداد زر واتساب العائم، رقم الهاتف، البريد، وحالة الخدمات الخارجية' },
+        { key: 'social_links', title: 'التواصل الاجتماعي', desc: 'إدارة روابط منصات التواصل الظاهرة في التذييل' },
+        { key: 'notifications_pref', title: 'الإشعارات', desc: 'التحكم في تنبيهات الرسائل والمتابعين والأخطاء' }
+      ];
+
+      const activePageObj = state.pages[activeSettingsPageId] || state.pages.home;
+
+      return `
+        <div class="space-y-6">
+          <div class="glass-card p-5 space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-extrabold text-goldLux">نظام الإعدادات المركزي وإعدادات الصفحات المستقلة</h3>
+                <p class="text-xs text-slate-300">كل صفحة تمتلك إعداداتها المستقلة دون التأثير على بقية الصفحات.</p>
+              </div>
+              <input id="settings-search-input" oninput="filterSettingsCards()" type="text" placeholder="ابحث عن إعداد أو صفحة..." class="px-4 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs sm:text-sm w-full sm:w-64" />
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="text-sm font-extrabold text-crispWhite">الإعدادات العامة للموقع</h4>
+            <div id="general-settings-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              ${generalCards.map((c) => `
+                <div class="settings-searchable-card glass-card p-4 flex flex-col justify-between gap-3" data-search="${escapeHtml(c.title + ' ' + c.desc)}">
+                  <div>
+                    <div class="text-sm font-extrabold text-crispWhite">${escapeHtml(c.title)}</div>
+                    <p class="text-xs text-slate-300 mt-1">${escapeHtml(c.desc)}</p>
+                  </div>
+                  <button onclick="openGeneralSettingEditor('${c.key}')" class="px-3 py-2 rounded-xl bg-royalBlue/60 hover:bg-royalBlue text-goldLux text-xs font-bold self-start">
+                    إدارة الإعدادات
+                  </button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="text-sm font-extrabold text-crispWhite">إعدادات الصفحات (12 صفحة + إعدادات SEO)</h4>
+            <div id="page-settings-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              ${pageList.map((p) => `
+                <div class="settings-searchable-card glass-card p-4 flex flex-col justify-between gap-3 ${p.id === activeSettingsPageId ? 'border-goldLux' : ''}" data-search="${escapeHtml(p.titleAr + ' ' + p.titleEn + ' ' + p.slug)}">
+                  <div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm font-extrabold text-crispWhite">${escapeHtml(p.titleAr)}</span>
+                      <span class="text-[11px] px-2 py-0.5 rounded-full bg-goldLux/15 text-goldLux">${escapeHtml(p.status || 'published')}</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">${escapeHtml(p.slug)}</p>
+                  </div>
+                  <button onclick="selectActiveSettingsPage('${p.id}')" class="px-3 py-2 rounded-xl bg-goldLux/20 hover:bg-goldLux text-goldLux hover:text-navyDeep text-xs font-bold self-start transition">
+                    إدارة الإعدادات
+                  </button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="glass-card p-6 space-y-5 border-goldLux/50">
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
+              <div>
+                <span class="text-xs text-goldLux font-bold">تحرير صفحة مستقلة:</span>
+                <h3 class="text-xl font-black text-crispWhite">${escapeHtml(activePageObj.titleAr)}</h3>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <button onclick="savePageSettingsTab('draft')" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold">حفظ كمسودة</button>
+                <button onclick="previewPageDirectly('${activePageObj.id}')" class="px-3 py-2 rounded-xl bg-royalBlue/60 hover:bg-royalBlue text-xs font-bold text-goldLux">معاينة الصفحة</button>
+                <button onclick="confirmPublishPageSettings('${activePageObj.id}')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-goldLux to-amber-500 text-navyDeep text-xs font-extrabold shadow-gold">نشر التعديلات</button>
+                <button onclick="restorePreviousPageVersion('${activePageObj.id}')" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-bold text-slate-300">استعادة النسخة السابقة</button>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              ${[
+                { id: 'content', label: '1. المحتوى والنصوص' },
+                { id: 'media', label: '2. الصور والوسائط' },
+                { id: 'design', label: '3. التصميم والألوان' },
+                { id: 'motion', label: '4. الحركات والمؤثرات' },
+                { id: 'seo', label: '5. إعدادات SEO' },
+                { id: 'visibility', label: '6. الظهور والنشر' }
+              ].map((tb) => `
+                <button onclick="switchSettingsTab('${tb.id}')" class="px-3.5 py-2 rounded-xl text-xs font-bold transition ${activeSettingsTab === tb.id ? 'bg-goldLux text-navyDeep' : 'bg-white/5 hover:bg-white/10 text-crispWhite'}">
+                  ${tb.label}
+                </button>
+              `).join('')}
+            </div>
+
+            <div id="per-page-tab-body" class="space-y-4 pt-2">
+              ${renderPerPageTabContent(activePageObj, activeSettingsTab)}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function filterSettingsCards() {
+      const q = (document.getElementById('settings-search-input')?.value || '').trim().toLowerCase();
+      document.querySelectorAll('.settings-searchable-card').forEach((card) => {
+        const hay = (card.getAttribute('data-search') || '').toLowerCase();
+        card.style.display = !q || hay.includes(q) ? '' : 'none';
+      });
+    }
+
+    function selectActiveSettingsPage(pageId) {
+      activeSettingsPageId = pageId;
+      renderAdminSection('settings');
+    }
+
+    function switchSettingsTab(tabId) {
+      activeSettingsTab = tabId;
+      renderAdminSection('settings');
+    }
+
+    function renderPerPageTabContent(p, tabId) {
+      if (tabId === 'content') {
+        if (p.id === 'home') {
+          return `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div><label class="block text-xs font-bold text-goldLux mb-1">العنوان / الاسم (عربي)</label><input id="cfg-home-name-ar" type="text" value="${escapeHtml(state.identity.nameAr)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+              <div><label class="block text-xs font-bold text-goldLux mb-1">المسمى المهني (عربي)</label><input id="cfg-home-role-ar" type="text" value="${escapeHtml(state.identity.roleAr)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+              <div class="md:col-span-2"><label class="block text-xs font-bold text-goldLux mb-1">النص الترحيبي (عربي)</label><textarea id="cfg-home-welcome-ar" rows="3" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm">${escapeHtml(state.identity.welcomeAr)}</textarea></div>
+              <div class="md:col-span-2"><label class="block text-xs font-bold text-goldLux mb-1">العبارة الرئيسية (عربي)</label><input id="cfg-home-tagline-ar" type="text" value="${escapeHtml(state.identity.taglineAr)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+            </div>
+          `;
+        }
+        if (p.id === 'about_me') {
+          return `<div><label class="block text-xs font-bold text-goldLux mb-1">نص صفحة من أنا (عربي)</label><textarea id="cfg-aboutme-ar" rows="8" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm">${escapeHtml(state.identity.aboutMeAr)}</textarea></div>`;
+        }
+        if (p.id === 'about_us') {
+          return `<div><label class="block text-xs font-bold text-goldLux mb-1">نص صفحة من نحن (عربي)</label><textarea id="cfg-aboutus-ar" rows="6" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm">${escapeHtml(state.identity.aboutUsAr)}</textarea></div>`;
+        }
+        if (p.id === 'privacy') {
+          return `<div><label class="block text-xs font-bold text-goldLux mb-1">نص سياسة الخصوصية (عربي)</label><textarea id="cfg-privacy-ar" rows="8" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm">${escapeHtml(state.identity.privacyPolicyAr)}</textarea></div>`;
+        }
+        return `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div><label class="block text-xs font-bold text-goldLux mb-1">عنوان الصفحة (عربي)</label><input id="cfg-page-title-ar" type="text" value="${escapeHtml(p.titleAr)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+            <div><label class="block text-xs font-bold text-goldLux mb-1">عنوان الصفحة (إنجليزي)</label><input id="cfg-page-title-en" type="text" value="${escapeHtml(p.titleEn)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+          </div>
+        `;
+      }
+
+      if (tabId === 'media') {
+        return `
+          <div class="space-y-3">
+            <label class="block text-xs font-bold text-goldLux">صورة الصفحة المستقلة (رابط أو اختيار من المكتبة)</label>
+            <input id="cfg-page-hero-img" type="text" value="${escapeHtml(p.heroImage || '')}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <div class="flex flex-wrap gap-2">
+              ${state.mediaLibrary.map((m) => `
+                <button type="button" onclick="document.getElementById('cfg-page-hero-img').value='${escapeHtml(m.url)}'" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs flex items-center gap-2">
+                  <img src="${escapeHtml(m.url)}" class="w-6 h-6 rounded object-cover" />
+                  <span>${escapeHtml(m.title)}</span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      if (tabId === 'design') {
+        return `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div><label class="block text-xs font-bold text-goldLux mb-1">لون التمييز في هذه الصفحة</label><input id="cfg-page-accent" type="color" value="${escapeHtml(p.accentColor || '#D4AF37')}" class="h-10 w-24 rounded-lg bg-navyDeep border border-goldLux/30" /></div>
+            <div><label class="block text-xs font-bold text-goldLux mb-1">طابع الخلفية</label><select id="cfg-page-bgtint" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm"><option value="default" ${p.bgTint === 'default' ? 'selected' : ''}>افتراضي (أزرق ملكي وداكن)</option><option value="royal" ${p.bgTint === 'royal' ? 'selected' : ''}>إضاءة ملكية مكثفة</option></select></div>
+          </div>
+        `;
+      }
+
+      if (tabId === 'motion') {
+        return `
+          <div>
+            <label class="block text-xs font-bold text-goldLux mb-1">أسلوب حركة هذه الصفحة</label>
+            <select id="cfg-page-anim" class="w-full sm:w-72 px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm">
+              <option value="cinematic" ${p.animationStyle === 'cinematic' ? 'selected' : ''}>سينمائي ناعم</option>
+              <option value="subtle" ${p.animationStyle === 'subtle' ? 'selected' : ''}>خفيف جداً</option>
+            </select>
+          </div>
+        `;
+      }
+
+      if (tabId === 'seo') {
+        return `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div><label class="block text-xs font-bold text-goldLux mb-1">عنوان SEO (عربي)</label><input id="cfg-seo-title-ar" type="text" value="${escapeHtml(p.seoTitleAr)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+            <div><label class="block text-xs font-bold text-goldLux mb-1">الرابط Slug</label><input id="cfg-seo-slug" type="text" value="${escapeHtml(p.slug)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+            <div class="sm:col-span-2"><label class="block text-xs font-bold text-goldLux mb-1">وصف محركات البحث (عربي)</label><textarea id="cfg-seo-desc-ar" rows="2" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm">${escapeHtml(p.seoDescAr)}</textarea></div>
+            <div><label class="block text-xs font-bold text-goldLux mb-1">Canonical URL</label><input id="cfg-seo-canonical" type="text" value="${escapeHtml(p.canonicalUrl)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+            <div class="flex flex-col justify-center gap-2 pt-4">
+              <label class="flex items-center gap-2 text-xs"><input id="cfg-seo-indexable" type="checkbox" ${p.indexable ? 'checked' : ''} class="accent-goldLux" /><span>السماح بالفهرسة (Index)</span></label>
+              <label class="flex items-center gap-2 text-xs"><input id="cfg-seo-sitemap" type="checkbox" ${p.inSitemap ? 'checked' : ''} class="accent-goldLux" /><span>إدراج في Sitemap</span></label>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="space-y-3">
+          <label class="flex items-center gap-2 text-sm font-bold"><input id="cfg-page-visible" type="checkbox" ${p.visible ? 'checked' : ''} class="accent-goldLux" /><span>إظهار الصفحة في الموقع العام</span></label>
+          <p class="text-xs text-slate-400">الحالة الحالية: ${escapeHtml(p.status || 'published')}</p>
+        </div>
+      `;
+    }
+
+    function applyInputsToPageConfig(p, mode = 'published') {
+      p.previousVersion = { ...p, previousVersion: null };
+      p.status = mode;
+
+      if (activeSettingsTab === 'content') {
+        if (p.id === 'home') {
+          if (document.getElementById('cfg-home-name-ar')) state.identity.nameAr = document.getElementById('cfg-home-name-ar').value.trim();
+          if (document.getElementById('cfg-home-role-ar')) state.identity.roleAr = document.getElementById('cfg-home-role-ar').value.trim();
+          if (document.getElementById('cfg-home-welcome-ar')) state.identity.welcomeAr = document.getElementById('cfg-home-welcome-ar').value;
+          if (document.getElementById('cfg-home-tagline-ar')) state.identity.taglineAr = document.getElementById('cfg-home-tagline-ar').value.trim();
+        } else if (p.id === 'about_me' && document.getElementById('cfg-aboutme-ar')) {
+          state.identity.aboutMeAr = document.getElementById('cfg-aboutme-ar').value;
+        } else if (p.id === 'about_us' && document.getElementById('cfg-aboutus-ar')) {
+          state.identity.aboutUsAr = document.getElementById('cfg-aboutus-ar').value;
+        } else if (p.id === 'privacy' && document.getElementById('cfg-privacy-ar')) {
+          state.identity.privacyPolicyAr = document.getElementById('cfg-privacy-ar').value;
+        } else {
+          if (document.getElementById('cfg-page-title-ar')) p.titleAr = document.getElementById('cfg-page-title-ar').value.trim();
+          if (document.getElementById('cfg-page-title-en')) p.titleEn = document.getElementById('cfg-page-title-en').value.trim();
+        }
+      } else if (activeSettingsTab === 'media' && document.getElementById('cfg-page-hero-img')) {
+        p.heroImage = document.getElementById('cfg-page-hero-img').value.trim();
+        if (p.id === 'home' && p.heroImage) state.identity.portraitUrl = p.heroImage;
+      } else if (activeSettingsTab === 'design') {
+        if (document.getElementById('cfg-page-accent')) p.accentColor = document.getElementById('cfg-page-accent').value;
+        if (document.getElementById('cfg-page-bgtint')) p.bgTint = document.getElementById('cfg-page-bgtint').value;
+      } else if (activeSettingsTab === 'motion' && document.getElementById('cfg-page-anim')) {
+        p.animationStyle = document.getElementById('cfg-page-anim').value;
+      } else if (activeSettingsTab === 'seo') {
+        if (document.getElementById('cfg-seo-title-ar')) p.seoTitleAr = document.getElementById('cfg-seo-title-ar').value.trim();
+        if (document.getElementById('cfg-seo-slug')) p.slug = document.getElementById('cfg-seo-slug').value.trim();
+        if (document.getElementById('cfg-seo-desc-ar')) p.seoDescAr = document.getElementById('cfg-seo-desc-ar').value.trim();
+        if (document.getElementById('cfg-seo-canonical')) p.canonicalUrl = document.getElementById('cfg-seo-canonical').value.trim();
+        if (document.getElementById('cfg-seo-indexable')) p.indexable = document.getElementById('cfg-seo-indexable').checked;
+        if (document.getElementById('cfg-seo-sitemap')) p.inSitemap = document.getElementById('cfg-seo-sitemap').checked;
+      } else if (activeSettingsTab === 'visibility' && document.getElementById('cfg-page-visible')) {
+        p.visible = document.getElementById('cfg-page-visible').checked;
+      }
+    }
+
+    function savePageSettingsTab(mode = 'published') {
+      const p = state.pages[activeSettingsPageId];
+      if (!p) return;
+      applyInputsToPageConfig(p, mode);
+      addAuditLog(mode === 'draft' ? 'حفظ مسودة إعدادات صفحة' : 'نشر تعديلات صفحة', p.titleAr);
+      saveState();
+      showToast(mode === 'draft' ? 'تم حفظ المسودة بنجاح' : 'تم حفظ ونشر تعديلات الصفحة بنجاح');
+      renderAdminSection('settings');
+    }
+
+    function confirmPublishPageSettings(pageId) {
+      openModal(`
+        <div class="space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">تأكيد نشر التعديلات</h3>
+          <p class="text-sm text-slate-200">هل أنت متأكد من اعتماد ونشر تعديلات صفحة «${escapeHtml(state.pages[pageId]?.titleAr || '')}»؟</p>
+          <div class="flex items-center justify-end gap-3">
+            <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-white/10 text-xs font-bold">إلغاء</button>
+            <button onclick="closeModal(); savePageSettingsTab('published');" class="px-4 py-2 rounded-xl bg-goldLux text-navyDeep text-xs font-extrabold">تأكيد النشر</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function previewPageDirectly(pageId) {
+      window.location.href = 'index.html#' + encodeURIComponent(pageId);
+    }
+
+    function restorePreviousPageVersion(pageId) {
+      const p = state.pages[pageId];
+      if (!p || !p.previousVersion) {
+        showToast('لا توجد نسخة سابقة محفوظة لهذه الصفحة', 'warning');
+        return;
+      }
+      state.pages[pageId] = { ...p.previousVersion, previousVersion: null };
+      addAuditLog('استعادة النسخة السابقة لصفحة', p.titleAr);
+      saveState();
+      showToast('تمت استعادة النسخة السابقة للصفحة');
+      renderAdminSection('settings');
+    }
+
+    function openGeneralSettingEditor(key) {
+      if (key === 'theme_motion') {
+        openModal(`
+          <div class="space-y-4">
+            <h3 class="text-lg font-extrabold text-goldLux">الألوان والوضع الليلي والحركات</h3>
+            <label class="flex items-center gap-2 text-sm"><input id="gen-motion-cb" type="checkbox" ${state.meta.motionEnabled ? 'checked' : ''} class="accent-goldLux" /><span>تفعيل الحركات والمؤثرات البصرية</span></label>
+            <label class="flex items-center gap-2 text-sm"><input id="gen-cursor-cb" type="checkbox" ${state.meta.customCursorEnabled ? 'checked' : ''} class="accent-goldLux" /><span>تفعيل المؤشر المخصص للماوس (الكمبيوتر)</span></label>
+            <button onclick="saveGeneralMotionSettings()" class="w-full py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-sm">حفظ</button>
+          </div>
+        `);
+      } else if (key === 'whatsapp_contact') {
+        openModal(`
+          <div class="space-y-4">
+            <h3 class="text-lg font-extrabold text-goldLux">إعدادات واتساب والتواصل</h3>
+            <div><label class="block text-xs font-bold text-slate-300 mb-1">رقم واتساب</label><input id="gen-wa-num" type="text" value="${escapeHtml(state.meta.whatsappNumber)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+            <label class="flex items-center gap-2 text-sm"><input id="gen-wa-enabled" type="checkbox" ${state.meta.whatsappEnabled ? 'checked' : ''} class="accent-goldLux" /><span>إظهار زر واتساب العائم</span></label>
+            <div><label class="block text-xs font-bold text-slate-300 mb-1">رسالة الترحيب التلقائية (عربي)</label><input id="gen-wa-greet" type="text" value="${escapeHtml(state.meta.whatsappGreetingAr)}" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+            <button onclick="saveGeneralWaSettings()" class="w-full py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-sm">حفظ إعدادات واتساب</button>
+          </div>
+        `);
+      } else if (key === 'social_links') {
+        selectAdminSection('social_manager');
+      } else {
+        showToast('يمكنك تعديل تفاصيل هذا القسم من الأقسام المخصصة في القائمة الجانبية');
+      }
+    }
+
+    function saveGeneralMotionSettings() {
+      state.meta.motionEnabled = document.getElementById('gen-motion-cb').checked;
+      state.meta.customCursorEnabled = document.getElementById('gen-cursor-cb').checked;
+      addAuditLog('تحديث إعدادات الحركات والمؤشر', 'الإعدادات العامة');
+      saveState();
+      closeModal();
+      showToast('تم حفظ إعدادات الحركات والمؤثرات');
+    }
+
+    function saveGeneralWaSettings() {
+      state.meta.whatsappNumber = document.getElementById('gen-wa-num').value.trim();
+      state.meta.whatsappEnabled = document.getElementById('gen-wa-enabled').checked;
+      state.meta.whatsappGreetingAr = document.getElementById('gen-wa-greet').value.trim();
+      state.meta.whatsappConfirmedByAdmin = true;
+      addAuditLog('تحديث إعدادات زر واتساب', 'الإعدادات العامة');
+      saveState();
+      closeModal();
+      showToast('تم حفظ إعدادات واتساب بنجاح');
+    }
+
+    function renderAdminSkillsAndExp() {
+      return `
+        <div class="space-y-8">
+          <div class="glass-card p-6 space-y-4">
+            <h3 class="text-lg font-extrabold text-goldLux">إدارة المهارات (إضافة / تعديل / حذف)</h3>
+            <form onsubmit="addNewSkill(event)" class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+              <input id="new-sk-ar" type="text" required placeholder="اسم المهارة (عربي)" class="sm:col-span-2 px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+              <input id="new-sk-rating" type="text" required placeholder="التقدير (مثال: ممتاز)" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+              <input id="new-sk-level" type="number" min="1" max="100" value="90" required class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+              <button type="submit" class="sm:col-span-4 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">+ إضافة مهارة جديدة</button>
+            </form>
+            <div class="space-y-2 pt-2">
+              ${state.skills.map((sk) => `
+                <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between gap-2 text-sm">
+                  <div><strong>${escapeHtml(sk.nameAr)}</strong> <span class="text-xs text-goldLux">(${escapeHtml(sk.ratingLabelAr)} • ${sk.level}%)</span></div>
+                  <button onclick="deleteSkill('${sk.id}')" class="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 text-xs font-bold">حذف</button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="glass-card p-6 space-y-4">
+            <h3 class="text-lg font-extrabold text-goldLux">إدارة الخبرات العملية</h3>
+            <form onsubmit="addNewExperience(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input id="new-exp-company" type="text" required placeholder="اسم الجهة أو الشركة" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+              <input id="new-exp-role" type="text" placeholder="المسمى الوظيفي (اختياري)" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+              <textarea id="new-exp-duties" rows="2" placeholder="وصف الخبرة أو المهام" class="sm:col-span-2 px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm"></textarea>
+              <button type="submit" class="sm:col-span-2 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">+ إضافة خبرة عملية</button>
+            </form>
+            <div class="space-y-2 pt-2">
+              ${state.experiences.map((exp) => `
+                <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between gap-2 text-sm">
+                  <div><strong>${escapeHtml(exp.companyAr)}</strong><p class="text-xs text-slate-300">${escapeHtml(exp.dutiesAr)}</p></div>
+                  <button onclick="deleteExperience('${exp.id}')" class="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 text-xs font-bold">حذف</button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function addNewSkill(e) {
+      e.preventDefault();
+      const nameAr = document.getElementById('new-sk-ar').value.trim();
+      const ratingLabelAr = document.getElementById('new-sk-rating').value.trim();
+      const level = Number(document.getElementById('new-sk-level').value) || 85;
+      state.skills.push({
+        id: 'sk_' + Date.now(),
+        nameAr,
+        nameEn: nameAr,
+        level,
+        ratingLabelAr,
+        ratingLabelEn: ratingLabelAr,
+        categoryAr: 'مهارة مهنية',
+        categoryEn: 'Professional'
+      });
+      addAuditLog('إضافة مهارة جديدة', nameAr);
+      saveState();
+      renderAdminSection('skills_exp');
+      showToast('تمت إضافة المهارة بنجاح');
+    }
+
+    function deleteSkill(id) {
+      state.skills = state.skills.filter((s) => s.id !== id);
+      addAuditLog('حذف مهارة', id);
+      saveState();
+      renderAdminSection('skills_exp');
+    }
+
+    function addNewExperience(e) {
+      e.preventDefault();
+      const companyAr = document.getElementById('new-exp-company').value.trim();
+      const roleAr = document.getElementById('new-exp-role').value.trim();
+      const dutiesAr = document.getElementById('new-exp-duties').value.trim();
+      state.experiences.unshift({
+        id: 'exp_' + Date.now(),
+        companyAr,
+        companyEn: companyAr,
+        roleAr,
+        roleEn: roleAr,
+        locationAr: '',
+        locationEn: '',
+        startDate: '',
+        endDate: '',
+        isCurrent: false,
+        dutiesAr,
+        dutiesEn: dutiesAr,
+        skillsAr: '',
+        skillsEn: '',
+        imageUrl: ''
+      });
+      addAuditLog('إضافة خبرة عملية', companyAr);
+      saveState();
+      renderAdminSection('skills_exp');
+      showToast('تمت إضافة الخبرة العملية');
+    }
+
+    function deleteExperience(id) {
+      state.experiences = state.experiences.filter((x) => x.id !== id);
+      addAuditLog('حذف خبرة عملية', id);
+      saveState();
+      renderAdminSection('skills_exp');
+    }
+
+    function renderAdminCollectionManager(collectionKey, headingTitle) {
+      const list = state[collectionKey] || [];
+      return `
+        <div class="glass-card p-6 space-y-5">
+          <h3 class="text-lg font-extrabold text-goldLux">${escapeHtml(headingTitle)}</h3>
+          <form onsubmit="addCollectionItem(event, '${collectionKey}')" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input id="col-title-ar" type="text" required placeholder="العنوان (عربي)" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <input id="col-cat" type="text" placeholder="التصنيف (مثال: تصميم جرافيكي، بيانات)" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <input id="col-img" type="text" placeholder="رابط الصورة أو اختيار من المكتبة" class="sm:col-span-2 px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <textarea id="col-desc-ar" rows="2" placeholder="الوصف التفصيلي (عربي)" class="sm:col-span-2 px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm"></textarea>
+            <button type="submit" class="sm:col-span-2 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">+ إضافة عنصر جديد</button>
+          </form>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            ${list.map((it) => `
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start justify-between gap-3">
+                <div class="space-y-1">
+                  <div class="font-bold text-sm text-crispWhite">${escapeHtml(it.titleAr)}</div>
+                  <div class="text-xs text-goldLux">${escapeHtml(it.category || '')}</div>
+                  <p class="text-xs text-slate-300">${escapeHtml(it.descAr || '')}</p>
+                </div>
+                <button onclick="deleteCollectionItem('${collectionKey}', '${it.id}')" class="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 text-xs font-bold shrink-0">حذف</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function addCollectionItem(e, collectionKey) {
+      e.preventDefault();
+      const titleAr = document.getElementById('col-title-ar').value.trim();
+      const category = document.getElementById('col-cat').value.trim() || 'عام';
+      const imageUrl = document.getElementById('col-img').value.trim() || DEFAULT_PORTRAIT_SVG;
+      const descAr = document.getElementById('col-desc-ar').value.trim();
+
+      state[collectionKey].unshift({
+        id: collectionKey.slice(0, 3) + '_' + Date.now(),
+        titleAr,
+        titleEn: titleAr,
+        category,
+        imageUrl,
+        descAr,
+        descEn: descAr,
+        date: new Date().toISOString().slice(0, 10),
+        visible: true
+      });
+      addAuditLog(`إضافة عنصر إلى ${collectionKey}`, titleAr);
+      saveState();
+      renderAdminSection(collectionKey === 'portfolio' ? 'portfolio_admin' : 'achievements_admin');
+      showToast('تمت الإضافة بنجاح');
+    }
+
+    function deleteCollectionItem(collectionKey, id) {
+      state[collectionKey] = state[collectionKey].filter((x) => x.id !== id);
+      addAuditLog(`حذف عنصر من ${collectionKey}`, id);
+      saveState();
+      renderAdminSection(collectionKey === 'portfolio' ? 'portfolio_admin' : 'achievements_admin');
+    }
+
+    function renderAdminCertificatesManager() {
+      return `
+        <div class="glass-card p-6 space-y-5">
+          <h3 class="text-lg font-extrabold text-goldLux">إدارة الشهادات والدورات والملفات</h3>
+          <form onsubmit="addCertificateItem(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input id="cert-title" type="text" required placeholder="اسم الشهادة أو الدورة" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <input id="cert-issuer" type="text" placeholder="الجهة المانحة" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <input id="cert-file" type="text" placeholder="رابط الصورة أو الملف" class="sm:col-span-2 px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <label class="sm:col-span-2 flex items-center gap-2 text-xs"><input id="cert-dl" type="checkbox" checked class="accent-goldLux" /><span>السماح للزوار بتحميل الشهادة</span></label>
+            <button type="submit" class="sm:col-span-2 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">+ إضافة شهادة / دورة</button>
+          </form>
+          <div class="space-y-2 pt-2">
+            ${state.certificates.map((c) => `
+              <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between gap-2 text-sm">
+                <div><strong>${escapeHtml(c.title)}</strong> <span class="text-xs text-goldLux">${escapeHtml(c.issuer || '')}</span></div>
+                <button onclick="deleteCertificateItem('${c.id}')" class="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 text-xs font-bold">حذف</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function addCertificateItem(e) {
+      e.preventDefault();
+      const title = document.getElementById('cert-title').value.trim();
+      const issuer = document.getElementById('cert-issuer').value.trim();
+      const fileUrl = document.getElementById('cert-file').value.trim();
+      const allowDownload = document.getElementById('cert-dl').checked;
+      state.certificates.unshift({
+        id: 'cert_' + Date.now(),
+        title,
+        issuer,
+        fileUrl,
+        allowDownload,
+        date: new Date().toISOString().slice(0, 10)
+      });
+      addAuditLog('إضافة شهادة أو دورة', title);
+      saveState();
+      renderAdminSection('certificates_admin');
+      showToast('تمت إضافة الشهادة');
+    }
+
+    function deleteCertificateItem(id) {
+      state.certificates = state.certificates.filter((c) => c.id !== id);
+      addAuditLog('حذف شهادة', id);
+      saveState();
+      renderAdminSection('certificates_admin');
+    }
+
+    function renderAdminMediaLibrary() {
+      return `
+        <div class="glass-card p-6 space-y-5">
+          <h3 class="text-lg font-extrabold text-goldLux">مكتبة الصور والملفات وأدوات المعالجة</h3>
+          <form onsubmit="uploadMediaFile(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <input id="med-file-input" type="file" accept="image/*,.pdf" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs" />
+            <input id="med-title-input" type="text" placeholder="عنوان الوسيط" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+            <button type="submit" class="py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">رفع إلى المكتبة</button>
+          </form>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            ${state.mediaLibrary.map((m) => `
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+                <div class="h-36 rounded-lg overflow-hidden bg-navyDeep flex items-center justify-center">
+                  <img src="${escapeHtml(m.url)}" alt="${escapeHtml(m.title)}" style="transform: rotate(${m.rotation || 0}deg); object-position: ${m.position || 'center'};" class="w-full h-full object-cover transition-transform" />
+                </div>
+                <div class="text-xs font-bold text-crispWhite">${escapeHtml(m.title)}</div>
+                <div class="flex flex-wrap gap-1.5 text-[11px]">
+                  <button onclick="rotateMediaItem('${m.id}', 90)" class="px-2.5 py-1 rounded bg-white/10">تدوير 90°</button>
+                  <button onclick="setMediaAsPortrait('${m.id}')" class="px-2.5 py-1 rounded bg-goldLux/20 text-goldLux font-bold">تعيين كصورة شخصية</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function uploadMediaFile(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('med-file-input');
+      const titleInput = document.getElementById('med-title-input');
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) {
+        addNotification('uploadError', 'لم يتم اختيار ملف', 'يرجى اختيار صورة أو ملف قبل الضغط على رفع.');
+        showToast('يرجى اختيار ملف أولاً', 'warning');
+        return;
+      }
+      if (file.size > 2.5 * 1024 * 1024) {
+        addNotification('uploadError', 'حجم الملف كبير', `الملف ${file.name} يتجاوز الحد المسموح للمعاينة المحلية.`);
+        showToast('حجم الملف كبير جداً للمعاينة المحلية (الحد ~2.5MB)', 'error');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        state.mediaLibrary.unshift({
+          id: 'med_' + Date.now(),
+          title: titleInput.value.trim() || file.name,
+          altText: titleInput.value.trim() || file.name,
+          category: 'upload',
+          url: reader.result,
+          mimeType: file.type,
+          sizeLabel: `${Math.round(file.size / 1024)} KB`,
+          rotation: 0,
+          position: 'center',
+          createdAt: new Date().toISOString()
+        });
+        addAuditLog('رفع ملف إلى المكتبة', file.name);
+        saveState();
+        renderAdminSection('media_library');
+        showToast('تم رفع الملف إلى المكتبة');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function rotateMediaItem(id, deg) {
+      const item = state.mediaLibrary.find((m) => m.id === id);
+      if (!item) return;
+      item.rotation = ((item.rotation || 0) + deg) % 360;
+      saveState();
+      renderAdminSection('media_library');
+    }
+
+    function setMediaAsPortrait(id) {
+      const item = state.mediaLibrary.find((m) => m.id === id);
+      if (!item) return;
+      state.identity.portraitUrl = item.url;
+      if (state.pages.home) state.pages.home.heroImage = item.url;
+      addAuditLog('تعيين صورة من المكتبة كصورة شخصية', item.title);
+      saveState();
+      showToast('تم تحديث الصورة الشخصية في الموقع');
+    }
+
+    function renderAdminCvManager() {
+      const activeCv = state.cvVersions.find((v) => v.id === state.activeCvId) || state.cvVersions[0];
+      return `
+        <div class="glass-card p-6 space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-extrabold text-goldLux">إدارة السيرة الذاتية متعددة النسخ</h3>
+              <p class="text-xs text-slate-300">اختر النسخة أو أنشئ نسخة مخصصة وتحكم في الأقسام واللغات والهوايات والأقسام الإضافية.</p>
+            </div>
+            <button onclick="createNewCvVersion()" class="px-4 py-2 rounded-xl bg-goldLux text-navyDeep text-xs font-extrabold">+ إنشاء نسخة جديدة</button>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            ${state.cvVersions.map((v) => `
+              <button onclick="selectAdminCvVersion('${v.id}')" class="px-4 py-2 rounded-xl text-xs font-bold ${v.id === activeCv.id ? 'bg-goldLux text-navyDeep' : 'bg-white/10'}">${escapeHtml(v.nameAr)}</button>
+            `).join('')}
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <strong class="text-sm text-crispWhite">تحرير: ${escapeHtml(activeCv.nameAr)}</strong>
+              <label class="flex items-center gap-2 text-xs"><input id="cv-include-portrait" type="checkbox" ${activeCv.includePortrait ? 'checked' : ''} class="accent-goldLux" /><span>تضمين الصورة الشخصية</span></label>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+              ${Object.keys(activeCv.visibleSections).map((k) => `
+                <label class="flex items-center gap-2 p-2 rounded-lg bg-navyDeep/70">
+                  <input type="checkbox" class="cv-sec-toggle accent-goldLux" data-sec="${k}" ${activeCv.visibleSections[k] ? 'checked' : ''} />
+                  <span>${escapeHtml(k)}</span>
+                </label>
+              `).join('')}
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <input id="cv-add-lang" type="text" placeholder="إضافة لغة (مثال: الإنجليزية - جيد)" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs" />
+              <input id="cv-add-hobby" type="text" placeholder="إضافة هواية أو اهتمام" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs" />
+              <input id="cv-custom-title" type="text" placeholder="عنوان قسم إضافي مخصص" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs" />
+              <input id="cv-custom-body" type="text" placeholder="محتوى القسم الإضافي" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs" />
+            </div>
+
+            <button onclick="saveCvVersionEdits('${activeCv.id}')" class="px-5 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">حفظ إعدادات نسخة السيرة الذاتية</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectAdminCvVersion(id) {
+      state.activeCvId = id;
+      saveState();
+      renderAdminSection('cv_manager');
+    }
+
+    function createNewCvVersion() {
+      const name = prompt('أدخل اسم نسخة السيرة الذاتية الجديدة:');
+      if (!name || !name.trim()) return;
+      const newId = 'cv_' + Date.now();
+      state.cvVersions.push({
+        id: newId,
+        nameAr: name.trim(),
+        nameEn: name.trim(),
+        includePortrait: true,
+        sectionsOrder: ['identity', 'about', 'skills', 'experience', 'portfolio', 'achievements', 'certificates', 'languages', 'hobbies', 'custom'],
+        visibleSections: {
+          identity: true, about: true, skills: true, experience: true,
+          portfolio: true, achievements: true, certificates: true, languages: true, hobbies: true, custom: true
+        },
+        languages: [{ id: 'lang_ar', nameAr: 'العربية', nameEn: 'Arabic', levelAr: 'اللغة الأم', levelEn: 'Native' }],
+        hobbies: [],
+        customSections: []
+      });
+      state.activeCvId = newId;
+      addAuditLog('إنشاء نسخة سيرة ذاتية جديدة', name.trim());
+      saveState();
+      renderAdminSection('cv_manager');
+      showToast('تم إنشاء النسخة الجديدة');
+    }
+
+    function saveCvVersionEdits(id) {
+      const cv = state.cvVersions.find((v) => v.id === id);
+      if (!cv) return;
+      cv.includePortrait = document.getElementById('cv-include-portrait').checked;
+      document.querySelectorAll('.cv-sec-toggle').forEach((chk) => {
+        const sec = chk.getAttribute('data-sec');
+        cv.visibleSections[sec] = chk.checked;
+      });
+
+      const langVal = document.getElementById('cv-add-lang').value.trim();
+      if (langVal) {
+        cv.languages.push({ id: 'lang_' + Date.now(), nameAr: langVal, nameEn: langVal, levelAr: '', levelEn: '' });
+      }
+      const hobbyVal = document.getElementById('cv-add-hobby').value.trim();
+      if (hobbyVal) {
+        cv.hobbies.push({ ar: hobbyVal, en: hobbyVal });
+      }
+      const cTitle = document.getElementById('cv-custom-title').value.trim();
+      const cBody = document.getElementById('cv-custom-body').value.trim();
+      if (cTitle && cBody) {
+        cv.customSections.push({ id: 'cs_' + Date.now(), titleAr: cTitle, titleEn: cTitle, contentAr: cBody, contentEn: cBody });
+      }
+
+      addAuditLog('تحديث نسخة السيرة الذاتية', cv.nameAr);
+      saveState();
+      renderAdminSection('cv_manager');
+      showToast('تم حفظ تعديلات السيرة الذاتية');
+    }
+
+    function renderAdminMessages() {
+      return `
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">صندوق الرسائل الواردة (${state.messages.length})</h3>
+          ${state.messages.length === 0 ? `<p class="text-sm text-slate-400">لا توجد رسائل واردة حتى الآن.</p>` : `
+            <div class="space-y-3">
+              ${state.messages.map((m) => `
+                <div class="p-4 rounded-xl bg-white/5 border ${m.status === 'unread' ? 'border-goldLux/60' : 'border-white/10'} space-y-2">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <span class="font-bold text-sm text-crispWhite">${escapeHtml(m.name)}</span>
+                      <span class="text-xs text-goldLux mx-2">${escapeHtml(m.email)}</span>
+                      <span class="text-[11px] px-2 py-0.5 rounded-full bg-white/10">${escapeHtml(m.status)}</span>
+                    </div>
+                    <span class="text-[11px] text-slate-400">${new Date(m.createdAt).toLocaleString('ar-SA')}</span>
+                  </div>
+                  <p class="text-sm text-slate-200">${formatMultiline(m.message)}</p>
+                  ${m.replyText ? `<div class="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-400/25 text-xs text-emerald-200">الرد المسجل: ${escapeHtml(m.replyText)}</div>` : ''}
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    <button onclick="markMessageRead('${m.id}')" class="px-3 py-1 rounded-lg bg-white/10 text-xs font-bold">تعليم كمقروءة</button>
+                    <button onclick="openReplyMessageModal('${m.id}')" class="px-3 py-1 rounded-lg bg-goldLux/20 text-goldLux text-xs font-bold">تسجيل رد</button>
+                    <button onclick="deleteMessage('${m.id}')" class="px-3 py-1 rounded-lg bg-rose-500/20 text-rose-300 text-xs font-bold">حذف</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+    function markMessageRead(id) {
+      const m = state.messages.find((x) => x.id === id);
+      if (m) { m.status = 'read'; saveState(); renderAdminSection('messages'); }
+    }
+
+    function openReplyMessageModal(id) {
+      const m = state.messages.find((x) => x.id === id);
+      if (!m) return;
+      openModal(`
+        <div class="space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">الرد على ${escapeHtml(m.name)}</h3>
+          <textarea id="msg-reply-input" rows="4" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm">${escapeHtml(m.replyText || '')}</textarea>
+          <button onclick="saveMessageReply('${m.id}')" class="w-full py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-sm">حفظ الرد</button>
+        </div>
+      `);
+    }
+
+    function saveMessageReply(id) {
+      const m = state.messages.find((x) => x.id === id);
+      if (!m) return;
+      m.replyText = document.getElementById('msg-reply-input').value.trim();
+      m.status = 'replied';
+      saveState();
+      closeModal();
+      renderAdminSection('messages');
+      showToast('تم حفظ الرد في سجل الرسالة');
+    }
+
+    function deleteMessage(id) {
+      state.messages = state.messages.filter((x) => x.id !== id);
+      saveState();
+      renderAdminSection('messages');
+    }
+
+    function renderAdminFollowers() {
+      const activeList = state.followers.filter((f) => f.active);
+      return `
+        <div class="glass-card p-6 space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-extrabold text-goldLux">إدارة المتابعين («تابع جديد أعمالي»)</h3>
+              <p class="text-xs text-slate-300">المشتركون الموافقون صراحةً على تلقي تحديثات الأعمال الجديدة (${activeList.length} نشط).</p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="exportFollowersCsv()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold">تصدير CSV</button>
+              <button onclick="openAnnounceNewWorkModal()" class="px-4 py-2 rounded-xl bg-goldLux text-navyDeep text-xs font-extrabold">إرسال إشعار عمل جديد</button>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            ${state.followers.length === 0 ? `<p class="text-sm text-slate-400">لا يوجد متابعون مسجلون حالياً.</p>` : state.followers.map((f) => `
+              <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div>
+                  <span class="font-bold text-crispWhite">${escapeHtml(f.email)}</span>
+                  <span class="text-slate-400 mx-2">${new Date(f.subscribedAt).toLocaleDateString('ar-SA')}</span>
+                  <span class="px-2 py-0.5 rounded-full ${f.active ? 'bg-emerald-500/20 text-emerald-300' : 'bg-rose-500/20 text-rose-300'}">${f.active ? 'نشط' : 'ملغى'}</span>
+                </div>
+                ${f.active ? `<button onclick="unsubscribeFollowerByToken('${f.unsubscribeToken}')" class="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 font-bold">إلغاء الاشتراك</button>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function unsubscribeFollowerByToken(token) {
+      const target = state.followers.find((f) => f.unsubscribeToken === token);
+      if (!target) return;
+      target.active = false;
+      target.unsubscribedAt = new Date().toISOString();
+      saveState();
+      showToast('تم إلغاء الاشتراك بنجاح');
+      renderAdminSection('followers');
+    }
+
+    function exportFollowersCsv() {
+      const activeList = state.followers.filter((f) => f.active);
+      const rows = [['Email', 'SubscribedAt', 'Consent', 'Source']];
+      activeList.forEach((f) => rows.push([f.email, f.subscribedAt, 'Yes', f.source || 'site']));
+      const csvContent = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'followers-dhafran-alqudami.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('تم تصدير قائمة المتابعين بصيغة CSV');
+    }
+
+    function openAnnounceNewWorkModal() {
+      const activeList = state.followers.filter((f) => f.active);
+      openModal(`
+        <div class="space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">إشعار المتابعين بعمل جديد</h3>
+          <p class="text-xs text-slate-300">عدد المشتركين النشطين: <strong>${activeList.length}</strong>. (يتطلب ربط خدمة بريد خارجية للإرسال الفعلي إلى صناديق البريد).</p>
+          <input id="ann-title" type="text" placeholder="عنوان العمل الجديد" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
+          <textarea id="ann-body" rows="3" placeholder="نبذة مختصرة عن العمل الجديد" class="w-full px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm"></textarea>
+          <button onclick="recordWorkAnnouncement()" class="w-full py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-sm">تسجيل الإشعار في سجل النظام</button>
+        </div>
+      `);
+    }
+
+    function recordWorkAnnouncement() {
+      const title = document.getElementById('ann-title').value.trim() || 'عمل جديد';
+      addAuditLog('تجهيز إشعار عمل جديد للمتابعين', title);
+      addNotification('system', 'إشعار عمل جديد', `تم تسجيل إشعار المتابعين بخصوص: ${title}`);
+      closeModal();
+      showToast('تم تسجيل الإشعار في النظام');
+    }
+
+    function renderAdminAnalytics() {
+      const a = state.analytics;
+      return `
+        <div class="space-y-6">
+          <div class="glass-card p-5 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-extrabold text-goldLux">إحصائيات الزوار الحقيقية واللحظية</h3>
+              <p class="text-xs text-slate-300">بدأت من لحظة تفعيل النظام (${new Date(a.startedAt).toLocaleString('ar-SA')}) — بدون بيانات وهمية أو مضخمة.</p>
+            </div>
+            <div class="flex gap-2">
+              ${['today', '7d', '30d', 'all'].map((p) => `
+                <button onclick="setAnalyticsPeriod('${p}')" class="px-3 py-1.5 rounded-xl text-xs font-bold ${analyticsPeriodFilter === p ? 'bg-goldLux text-navyDeep' : 'bg-white/10'}">${p}</button>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glass-card p-4"><div class="text-xs text-slate-300">إجمالي الزيارات</div><div class="text-2xl font-black text-goldLux mt-1">${a.totalVisits}</div></div>
+            <div class="glass-card p-4"><div class="text-xs text-slate-300">الزوار الفريدون</div><div class="text-2xl font-black text-goldLux mt-1">${a.uniqueVisitorsCount}</div></div>
+            <div class="glass-card p-4"><div class="text-xs text-slate-300">المتواجدون الآن (آخر 5 دقائق)</div><div class="text-2xl font-black text-emerald-400 mt-1">${getActiveVisitorsLast5Min()}</div></div>
+            <div class="glass-card p-4"><div class="text-xs text-slate-300">تحميلات السيرة الذاتية</div><div class="text-2xl font-black text-goldLux mt-1">${a.cvDownloads}</div></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-5 space-y-2">
+              <h4 class="text-sm font-extrabold text-goldLux">مشاهدات الصفحات</h4>
+              ${Object.entries(a.pageViews || {}).length === 0 ? `<p class="text-xs text-slate-400">لا توجد مشاهدات مسجلة بعد.</p>` : Object.entries(a.pageViews).map(([pid, cnt]) => `
+                <div class="flex justify-between text-xs py-1.5 border-b border-white/5"><span>${escapeHtml(state.pages[pid]?.titleAr || pid)}</span><strong class="text-goldLux">${cnt}</strong></div>
+              `).join('')}
+            </div>
+            <div class="glass-card p-5 space-y-2">
+              <h4 class="text-sm font-extrabold text-goldLux">الأجهزة والمتصفحات والمصادر</h4>
+              <div class="text-xs text-slate-200 space-y-1">
+                <div>الأجهزة: جوال (${a.devices.mobile || 0}) • تابلت (${a.devices.tablet || 0}) • كمبيوتر (${a.devices.desktop || 0})</div>
+                <div>نقرات التواصل: هاتف (${a.contactClicks.phone || 0}) • بريد (${a.contactClicks.email || 0}) • واتساب (${a.contactClicks.whatsapp || 0})</div>
+                <div>نقرات حسابات التواصل الاجتماعي: ${a.socialClicks || 0}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function setAnalyticsPeriod(p) {
+      analyticsPeriodFilter = p;
+      renderAdminSection('analytics');
+    }
+
+    function renderAdminReports() {
+      return `
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">التقارير والتصدير</h3>
+          <p class="text-xs text-slate-300">تصدير ملخص البيانات والإحصائيات والرسائل والمتابعين بصيغة JSON أو CSV.</p>
+          <div class="flex flex-wrap gap-3">
+            <button onclick="exportFullBackupJson()" class="px-4 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">تصدير تقرير شامل (JSON)</button>
+            <button onclick="exportFollowersCsv()" class="px-4 py-2.5 rounded-xl bg-royalBlue/60 text-crispWhite font-bold text-xs sm:text-sm">تصدير المتابعين (CSV)</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdminDigitalIdSettings() {
+      return `
+        <div class="glass-card p-6 space-y-4 max-w-2xl">
+          <h3 class="text-lg font-extrabold text-goldLux">إدارة بطاقة التعريف الرقمية ورمز QR</h3>
+          <div><label class="block text-xs font-bold text-slate-300 mb-1">رابط أو محتوى رمز QR للبطاقة الرقمية</label><input id="qr-content-input" type="text" value="${escapeHtml(state.meta.digitalCardQrContent || '')}" placeholder="https://example.com" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+          <div><label class="block text-xs font-bold text-slate-300 mb-1">رقم الهاتف</label><input id="id-phone-input" type="text" value="${escapeHtml(state.meta.phoneNumber)}" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+          <div><label class="block text-xs font-bold text-slate-300 mb-1">البريد الإلكتروني</label><input id="id-email-input" type="email" value="${escapeHtml(state.meta.contactEmail)}" class="w-full px-3.5 py-2.5 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" /></div>
+          <button onclick="saveDigitalIdSettings()" class="px-5 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">حفظ بيانات البطاقة الرقمية</button>
+        </div>
+      `;
+    }
+
+    function saveDigitalIdSettings() {
+      const qrVal = document.getElementById('qr-content-input').value.trim();
+      state.meta.digitalCardQrContent = qrVal || state.meta.siteUrl || '';
+      state.meta.phoneNumber = document.getElementById('id-phone-input').value.trim();
+      state.meta.contactEmail = document.getElementById('id-email-input').value.trim();
+      addAuditLog('تحديث بيانات بطاقة التعريف الرقمية و QR', 'بطاقة التعريف الرقمية');
+      saveState();
+      showToast('تم حفظ بيانات البطاقة الرقمية ورمز QR');
+    }
+
+    function renderAdminPdfSettings() {
+      return `
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">إدارة السيرة الذاتية PDF والطباعة</h3>
+          <p class="text-xs text-slate-300">عدد مرات التحميل/الطباعة المسجلة: <strong class="text-goldLux">${state.cvDownloadsCount}</strong></p>
+          <a href="index.html#cv" class="inline-flex px-5 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">الانتقال لصفحة السيرة الذاتية للطباعة / PDF</a>
+        </div>
+      `;
+    }
+
+    function renderAdminBackupRestore() {
+      return `
+        <div class="glass-card p-6 space-y-5">
+          <h3 class="text-lg font-extrabold text-goldLux">النسخ الاحتياطي والاستعادة وإعادة الضبط</h3>
+          <div class="flex flex-wrap gap-3">
+            <button onclick="exportFullBackupJson()" class="px-4 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">تحميل نسخة احتياطية JSON</button>
+            <label class="px-4 py-2.5 rounded-xl bg-royalBlue/60 hover:bg-royalBlue text-crispWhite font-bold text-xs sm:text-sm cursor-pointer">
+              <span>استعادة من ملف JSON</span>
+              <input type="file" accept=".json,application/json" onchange="importBackupJson(event)" class="hidden" />
+            </label>
+            <button onclick="confirmFactoryReset()" class="px-4 py-2.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-400/40 text-rose-200 font-bold text-xs sm:text-sm">إعادة ضبط المصنع</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function exportFullBackupJson() {
+      const jsonStr = JSON.stringify(state, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `dhafran-alqudami-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      addAuditLog('تصدير نسخة احتياطية JSON', 'النظام الكامل');
+      showToast('تم تحميل النسخة الاحتياطية JSON');
+    }
+
+    function importBackupJson(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          if (!parsed || !parsed.identity || !parsed.pages) {
+            throw new Error('Invalid backup structure');
+          }
+          state = parsed;
+          saveState();
+          addAuditLog('استعادة نسخة احتياطية JSON', file.name);
+          renderAdminSection('backup_restore');
+          showToast('تمت استعادة النسخة الاحتياطية بنجاح');
+        } catch (_) {
+          showToast('ملف النسخة الاحتياطية غير صالح', 'error');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function confirmFactoryReset() {
+      openModal(`
+        <div class="space-y-4">
+          <h3 class="text-lg font-extrabold text-rose-400">تأكيد إعادة ضبط المصنع</h3>
+          <p class="text-sm text-slate-200">سيؤدي هذا الإجراء إلى إعادة كافة المحتويات والإعدادات إلى الحالة الأولية النظيفة. هل تريد المتابعة؟</p>
+          <div class="flex justify-end gap-3">
+            <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-white/10 text-xs font-bold">إلغاء</button>
+            <button onclick="executeFactoryReset()" class="px-4 py-2 rounded-xl bg-rose-600 text-white text-xs font-extrabold">تأكيد إعادة الضبط</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function executeFactoryReset() {
+      localStorage.removeItem(STORAGE_KEY);
+      sessionStorage.removeItem('dhafran_session_viewed_pages');
+      state = createInitialState();
+      saveState(state, false);
+      closeModal();
+      renderAdminSection('dashboard');
+      showToast('تمت إعادة ضبط المصنع بنجاح');
+    }
+
+    function renderAdminAuditLog() {
+      return `
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">سجل التعديلات والعمليات (Audit Log)</h3>
+          <div class="space-y-2.5">
+            ${state.auditLog.map((entry) => `
+              <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div>
+                  <strong class="text-crispWhite">${escapeHtml(entry.action)}</strong>
+                  <span class="text-goldLux mx-2">— ${escapeHtml(entry.target)}</span>
+                  <div class="text-[11px] text-slate-400 mt-0.5">${escapeHtml(entry.actor)} • ${new Date(entry.timestamp).toLocaleString('ar-SA')}</div>
+                </div>
+                ${entry.snapshot ? `<button onclick="undoAuditEntry('${entry.id}')" class="px-3 py-1 rounded-lg bg-goldLux/20 text-goldLux font-bold">تراجع / استعادة</button>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function undoAuditEntry(id) {
+      const entry = state.auditLog.find((a) => a.id === id);
+      if (!entry || !entry.snapshot) return;
+      if (entry.target === 'الهوية الأساسية') {
+        state.identity = entry.snapshot;
+      } else if (entry.target === 'تحسين محرك البحث') {
+        state.meta = entry.snapshot;
+      }
+      saveState();
+      showToast('تمت استعادة الحالة السابقة من سجل التعديلات');
+      renderAdminSection('audit_log');
+    }
+
+    function renderAdminAccountRoles() {
+      return `
+        <div class="glass-card p-6 space-y-6 max-w-2xl">
+          <div>
+            <h3 class="text-lg font-extrabold text-goldLux">إدارة الحساب والصلاحيات والخدمات الخارجية</h3>
+            <p class="text-xs text-slate-300 mt-1">الحساب الحالي: <strong>ظفران القدمي (مدير النظام — صلاحيات كاملة)</strong>.</p>
+          </div>
+
+          <form id="change-admin-password-form" onsubmit="changeAdminPassword(event)" class="p-4 rounded-xl bg-white/5 border border-goldLux/25 space-y-3">
+            <h4 class="text-sm font-extrabold text-crispWhite">تغيير كلمة مرور لوحة التحكم</h4>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">كلمة المرور الحالية</label>
+              <div class="relative">
+                <input id="admin-current-password" type="password" autocomplete="current-password" required class="w-full px-3.5 py-2.5 pl-12 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                <button type="button" onclick="togglePasswordVisibility('admin-current-password',this)" aria-label="إظهار كلمة المرور" class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-goldLux hover:text-white" title="إظهار أو إخفاء كلمة المرور"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">كلمة المرور الجديدة (8 أحرف على الأقل)</label>
+              <div class="relative">
+                <input id="admin-new-password" type="password" autocomplete="new-password" minlength="8" required class="w-full px-3.5 py-2.5 pl-12 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                <button type="button" onclick="togglePasswordVisibility('admin-new-password',this)" aria-label="إظهار كلمة المرور" class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-goldLux hover:text-white" title="إظهار أو إخفاء كلمة المرور"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">تأكيد كلمة المرور الجديدة</label>
+              <div class="relative">
+                <input id="admin-confirm-password" type="password" autocomplete="new-password" minlength="8" required class="w-full px-3.5 py-2.5 pl-12 rounded-xl bg-navyDeep border border-goldLux/30 text-sm text-crispWhite" />
+                <button type="button" onclick="togglePasswordVisibility('admin-confirm-password',this)" aria-label="إظهار كلمة المرور" class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-goldLux hover:text-white" title="إظهار أو إخفاء كلمة المرور"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              </div>
+            </div>
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm shadow-gold">حفظ كلمة المرور الجديدة</button>
+          </form>
+
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs text-slate-200">
+            <div><strong>قاعدة البيانات الحالية:</strong> ${escapeHtml(state.meta.externalServices.databaseProvider)}</div>
+            <div><strong>خدمة البريد الإلكتروني المباشر:</strong> ${state.meta.externalServices.emailServiceConfigured ? 'مفعّلة' : 'غير مربوطة بعد — يتطلب ربط خدمة بريد خارجية لإرسال رسائل نموذج التواصل إلى dhafran1alqudami@gmail.com'}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdminNotifications() {
+      state.notifications.forEach((n) => { n.read = true; });
+      saveState();
+      updateAdminNotificationBadge();
+      return `
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="text-lg font-extrabold text-goldLux">مركز الإشعارات والتنبيهات</h3>
+          <div class="space-y-2.5">
+            ${state.notifications.map((n) => `
+              <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs">
+                <div class="font-bold text-crispWhite">${escapeHtml(n.title)}</div>
+                <div class="text-slate-300 mt-0.5">${escapeHtml(n.detail)}</div>
+                <div class="text-[11px] text-slate-400 mt-1">${new Date(n.createdAt).toLocaleString('ar-SA')}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    window.__applyRemoteFirebaseState = function() {
+      state = loadState();
+      if (isAdminAuthenticated) {
+        renderAdminSection(currentAdminSection);
+        updateAdminNotificationBadge();
+      }
+    };
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === STORAGE_KEY && event.newValue) {
+        state = loadState();
+        if (isAdminAuthenticated) {
+          renderAdminSection(currentAdminSection);
+          updateAdminNotificationBadge();
+        }
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      if (sessionStorage.getItem('dhafran_admin_authed') === '1') {
+        isAdminAuthenticated = true;
+        openAdminDashboard();
+      } else {
+        document.getElementById('admin-shell').classList.add('hidden');
+        openAdminGate();
+      }
+    });
+  </script>
+  <!-- Firebase Realtime Database Sync -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCmNPKajRkfJZ1_7Ppd5nmjw-ZRdFPL5DQ",
+      authDomain: "dhafran-portfolio.firebaseapp.com",
+      databaseURL: "https://dhafran-portfolio-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "dhafran-portfolio",
+      storageBucket: "dhafran-portfolio.firebasestorage.app",
+      messagingSenderId: "725131298783",
+      appId: "1:725131298783:web:2fd939e126ff2c9fa3266a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const stateRef = ref(db, 'dhafran_alqudami_platform_v1');
+
+    window.__firebaseSync = {
+      initialized: false,
+      pushing: false,
+      push(data) {
+        if (!this.initialized) return;
+        this.pushing = true;
+        set(stateRef, JSON.parse(JSON.stringify(data)))
+          .catch((err) => console.error('Firebase write error:', err))
+          .finally(() => { this.pushing = false; });
+      }
+    };
+
+    (async () => {
+      try {
+        const snap = await get(stateRef);
+        if (snap.exists() && snap.val()) {
+          const remoteStr = JSON.stringify(snap.val());
+          if (localStorage.getItem('dhafran_alqudami_platform_v1') !== remoteStr) {
+            localStorage.setItem('dhafran_alqudami_platform_v1', remoteStr);
+            if (typeof window.__applyRemoteFirebaseState === 'function') {
+              window.__applyRemoteFirebaseState();
+            }
+          }
+        } else {
+          const localRaw = localStorage.getItem('dhafran_alqudami_platform_v1');
+          if (localRaw) {
+            await set(stateRef, JSON.parse(localRaw));
+          }
+        }
+      } catch (err) {
+        console.error('Firebase initial sync error:', err);
+      } finally {
+        window.__firebaseSync.initialized = true;
+      }
+
+      onValue(stateRef, (snapshot) => {
+        if (!snapshot.exists() || !snapshot.val() || window.__firebaseSync.pushing) return;
+        const remoteStr = JSON.stringify(snapshot.val());
+        if (localStorage.getItem('dhafran_alqudami_platform_v1') !== remoteStr) {
+          localStorage.setItem('dhafran_alqudami_platform_v1', remoteStr);
+          if (typeof window.__applyRemoteFirebaseState === 'function') {
+            window.__applyRemoteFirebaseState();
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
