@@ -647,20 +647,61 @@ Through this website, I aim to present a clear and organized picture of my caree
     }
 
     function saveState(nextState = state, recordNotificationOnError = true) {
+      let localSaved = false;
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(nextState));
-        if (window.__firebaseSync && typeof window.__firebaseSync.push === 'function') {
-          window.__firebaseSync.push(nextState);
-        }
-        return true;
+        localSaved = true;
       } catch (err) {
-        console.error('Storage save error:', err);
-        if (recordNotificationOnError) {
-          addNotification('saveError', 'فشل حفظ البيانات', 'تعذر حفظ التغييرات في مساحة التخزين المحلية (قد تكون ممتلئة).');
+        console.warn('Primary localStorage save failed, attempting compact retry:', err);
+        try {
+          const compactState = JSON.parse(JSON.stringify(nextState));
+          if (Array.isArray(compactState.notifications) && compactState.notifications.length > 20) {
+            compactState.notifications = compactState.notifications.slice(0, 20);
+          }
+          if (Array.isArray(compactState.auditLog) && compactState.auditLog.length > 25) {
+            compactState.auditLog = compactState.auditLog.slice(0, 25);
+          }
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(compactState));
+          localSaved = true;
+        } catch (retryErr) {
+          console.error('Storage save error:', retryErr);
         }
-        showToast('تعذر حفظ البيانات في التخزين المحلي', 'error');
+      }
+
+      if (window.__firebaseSync && typeof window.__firebaseSync.push === 'function') {
+        try {
+          window.__firebaseSync.push(nextState);
+        } catch (fbErr) {
+          console.error('Firebase push error:', fbErr);
+        }
+      }
+
+      if (!localSaved) {
+        if (recordNotificationOnError && Array.isArray(nextState.notifications)) {
+          const hasRecentSaveError = nextState.notifications.some(
+            (n) => n && n.type === 'saveError' && !n.read && (Date.now() - new Date(n.createdAt).getTime() < 60000)
+          );
+          if (!hasRecentSaveError) {
+            nextState.notifications.unshift({
+              id: 'notif_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+              type: 'saveError',
+              title: 'تنبيه مساحة التخزين المحلية',
+              detail: 'تعذر الحفظ محلياً في المتصفح (قد تكون المساحة ممتلئة أو الرابط محلياً)، وتمت محاولة المزامنة السحابية.',
+              createdAt: new Date().toISOString(),
+              read: false
+            });
+            if (nextState.notifications.length > 100) {
+              nextState.notifications.length = 100;
+            }
+          }
+        }
+        if (typeof showToast === 'function') {
+          showToast('تعذر الحفظ محلياً في المتصفح (تحقق من المساحة أو الرابط)', 'warning');
+        }
         return false;
       }
+
+      return true;
     }
 
     function addNotification(type, title, detail) {
