@@ -219,6 +219,10 @@
             <h2 id="admin-current-section-title" class="text-base sm:text-lg font-extrabold gold-gradient-text">لوحة التحكم الرئيسية</h2>
           </div>
           <div class="flex items-center gap-2">
+            <span id="firebase-status-badge" class="px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-[11px] sm:text-xs font-bold flex items-center gap-1.5">
+              <span id="firebase-status-dot" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+              <span id="firebase-status-text">جاري الاتصال بقاعدة البيانات...</span>
+            </span>
             <span id="admin-unread-badge" class="px-2.5 py-1 rounded-full bg-goldLux/15 border border-goldLux/40 text-goldLux text-xs font-bold">0 إشعار</span>
             <button onclick="renderAdminSection('notifications')" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-goldLux relative" title="الإشعارات">
               <i data-lucide="bell" class="w-4 h-4"></i>
@@ -339,7 +343,7 @@
             serviceIssue: true
           },
           externalServices: {
-            databaseProvider: 'Browser Local Store (Active Demo) — Firebase/Supabase Ready',
+            databaseProvider: 'Firebase Realtime Database (تم الاتصال بقاعدة البيانات)',
             emailServiceConfigured: false,
             emailProviderNote: 'يتطلب ربط خدمة بريد خارجية (مثل EmailJS أو Resend أو Formspree أو خادم خلفي) لإرسال رسائل التواصل الفورية إلى dhafran1alqudami@gmail.com دون كشف مفاتيح سرية في الواجهة.',
             translationServiceConfigured: false
@@ -618,28 +622,88 @@ Through this website, I aim to present a clear and organized picture of my caree
     let activeSettingsTab = 'content';
     let analyticsPeriodFilter = 'all';
 
+    function normalizeFirebaseArray(val, fallback = []) {
+      if (Array.isArray(val)) return val;
+      if (val && typeof val === 'object') return Object.values(val);
+      return fallback;
+    }
+
+    function mergeStateWithDefaults(parsed) {
+      const base = createInitialState();
+      if (!parsed || typeof parsed !== 'object') return base;
+      const mergedPages = { ...base.pages };
+      if (parsed.pages && typeof parsed.pages === 'object') {
+        Object.keys(parsed.pages).forEach((k) => {
+          mergedPages[k] = { ...(base.pages[k] || {}), ...(parsed.pages[k] || {}) };
+        });
+      }
+      const parsedMeta = parsed.meta || {};
+      const parsedAnalytics = parsed.analytics || {};
+      const mergedCvVersions = normalizeFirebaseArray(parsed.cvVersions, base.cvVersions).map((cv) => ({
+        ...cv,
+        sectionsOrder: normalizeFirebaseArray(cv.sectionsOrder, ['identity', 'about', 'skills', 'experience', 'portfolio', 'achievements', 'certificates', 'languages', 'hobbies', 'custom']),
+        visibleSections: cv.visibleSections || {},
+        languages: normalizeFirebaseArray(cv.languages, []),
+        hobbies: normalizeFirebaseArray(cv.hobbies, []),
+        customSections: normalizeFirebaseArray(cv.customSections, [])
+      }));
+      return {
+        ...base,
+        ...parsed,
+        meta: {
+          ...base.meta,
+          ...parsedMeta,
+          seoConfig: { ...base.meta.seoConfig, ...(parsedMeta.seoConfig || {}) },
+          notificationPrefs: { ...base.meta.notificationPrefs, ...(parsedMeta.notificationPrefs || {}) },
+          externalServices: {
+            ...base.meta.externalServices,
+            ...(parsedMeta.externalServices || {}),
+            databaseProvider: window.__firebaseConnected
+              ? 'Firebase Realtime Database (تم الاتصال بقاعدة البيانات)'
+              : base.meta.externalServices.databaseProvider
+          },
+          socialLinks: normalizeFirebaseArray(parsedMeta.socialLinks, base.meta.socialLinks)
+        },
+        identity: { ...base.identity, ...(parsed.identity || {}) },
+        pageOrder: normalizeFirebaseArray(parsed.pageOrder, base.pageOrder),
+        pages: mergedPages,
+        skills: normalizeFirebaseArray(parsed.skills, base.skills),
+        experiences: normalizeFirebaseArray(parsed.experiences, base.experiences),
+        portfolio: normalizeFirebaseArray(parsed.portfolio, []),
+        achievements: normalizeFirebaseArray(parsed.achievements, []),
+        certificates: normalizeFirebaseArray(parsed.certificates, []),
+        mediaLibrary: normalizeFirebaseArray(parsed.mediaLibrary, base.mediaLibrary),
+        cvVersions: mergedCvVersions.length ? mergedCvVersions : base.cvVersions,
+        followers: normalizeFirebaseArray(parsed.followers, []),
+        messages: normalizeFirebaseArray(parsed.messages, []),
+        notifications: normalizeFirebaseArray(parsed.notifications, base.notifications),
+        auditLog: normalizeFirebaseArray(parsed.auditLog, base.auditLog),
+        analytics: {
+          ...base.analytics,
+          ...parsedAnalytics,
+          knownVisitorIds: normalizeFirebaseArray(parsedAnalytics.knownVisitorIds, []),
+          pageViews: parsedAnalytics.pageViews || {},
+          dailyStats: parsedAnalytics.dailyStats || {},
+          devices: { ...base.analytics.devices, ...(parsedAnalytics.devices || {}) },
+          browsers: parsedAnalytics.browsers || {},
+          os: parsedAnalytics.os || {},
+          referrers: parsedAnalytics.referrers || {},
+          eventsLog: normalizeFirebaseArray(parsedAnalytics.eventsLog, []),
+          contactClicks: { ...base.analytics.contactClicks, ...(parsedAnalytics.contactClicks || {}) },
+          activeSessions: parsedAnalytics.activeSessions || {}
+        }
+      };
+    }
+
     function loadState() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) {
           const initial = createInitialState();
-          saveState(initial, false);
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(initial)); } catch (_) {}
           return initial;
         }
-        const parsed = JSON.parse(raw);
-        const base = createInitialState();
-        return {
-          ...base,
-          ...parsed,
-          meta: {
-            ...base.meta,
-            ...(parsed.meta || {}),
-            seoConfig: { ...base.meta.seoConfig, ...((parsed.meta && parsed.meta.seoConfig) || {}) }
-          },
-          identity: { ...base.identity, ...(parsed.identity || {}) },
-          pages: { ...base.pages, ...(parsed.pages || {}) },
-          analytics: { ...base.analytics, ...(parsed.analytics || {}) }
-        };
+        return mergeStateWithDefaults(JSON.parse(raw));
       } catch (err) {
         console.error('Error loading state:', err);
         return createInitialState();
@@ -2036,10 +2100,22 @@ Through this website, I aim to present a clear and organized picture of my caree
         <div class="glass-card p-6 space-y-5">
           <h3 class="text-lg font-extrabold text-goldLux">مكتبة الصور والملفات وأدوات المعالجة</h3>
           <form onsubmit="uploadMediaFile(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <input id="med-file-input" type="file" accept="image/*,.pdf" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs" />
+            <input id="med-file-input" type="file" accept="image/*,.pdf" onchange="handleMediaFileSelect(this)" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-xs" />
             <input id="med-title-input" type="text" placeholder="عنوان الوسيط" class="px-3 py-2 rounded-xl bg-navyDeep border border-goldLux/30 text-sm" />
             <button type="submit" class="py-2.5 rounded-xl bg-goldLux text-navyDeep font-extrabold text-xs sm:text-sm">رفع إلى المكتبة</button>
           </form>
+          <div id="med-selected-file-bar" class="hidden p-3 rounded-xl bg-white/5 border border-goldLux/30 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <img id="med-selected-preview" src="" alt="" class="hidden w-12 h-12 rounded-lg object-cover border border-goldLux/40 shrink-0" />
+              <div class="min-w-0">
+                <div id="med-selected-name" class="text-xs font-bold text-crispWhite truncate"></div>
+                <div id="med-selected-size" class="text-[11px] text-slate-400"></div>
+              </div>
+            </div>
+            <button type="button" onclick="clearSelectedMediaFile()" class="px-3 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 border border-rose-400/30 text-rose-300 text-xs font-bold shrink-0">
+              حذف الصورة المرفقة
+            </button>
+          </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
             ${state.mediaLibrary.map((m) => `
               <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
@@ -2050,12 +2126,100 @@ Through this website, I aim to present a clear and organized picture of my caree
                 <div class="flex flex-wrap gap-1.5 text-[11px]">
                   <button onclick="rotateMediaItem('${m.id}', 90)" class="px-2.5 py-1 rounded bg-white/10">تدوير 90°</button>
                   <button onclick="setMediaAsPortrait('${m.id}')" class="px-2.5 py-1 rounded bg-goldLux/20 text-goldLux font-bold">تعيين كصورة شخصية</button>
+                  <button onclick="deleteMediaItem('${m.id}')" class="px-2.5 py-1 rounded bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 font-bold">حذف</button>
                 </div>
               </div>
             `).join('')}
           </div>
         </div>
       `;
+    }
+
+    function handleMediaFileSelect(input) {
+      const bar = document.getElementById('med-selected-file-bar');
+      const preview = document.getElementById('med-selected-preview');
+      const nameEl = document.getElementById('med-selected-name');
+      const sizeEl = document.getElementById('med-selected-size');
+      const file = input && input.files && input.files[0];
+      if (!file || !bar) {
+        if (bar) bar.classList.add('hidden');
+        return;
+      }
+      nameEl.textContent = file.name;
+      sizeEl.textContent = `${Math.max(1, Math.round(file.size / 1024))} KB`;
+      bar.classList.remove('hidden');
+      if (file.type && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          preview.src = reader.result;
+          preview.classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.src = '';
+        preview.classList.add('hidden');
+      }
+    }
+
+    function clearSelectedMediaFile() {
+      const fileInput = document.getElementById('med-file-input');
+      const bar = document.getElementById('med-selected-file-bar');
+      const preview = document.getElementById('med-selected-preview');
+      if (fileInput) fileInput.value = '';
+      if (preview) {
+        preview.src = '';
+        preview.classList.add('hidden');
+      }
+      if (bar) bar.classList.add('hidden');
+      showToast('تم حذف الملف المرفق قبل الرفع');
+    }
+
+    function deleteMediaItem(id) {
+      const item = state.mediaLibrary.find((m) => m.id === id);
+      if (!item) return;
+      state.mediaLibrary = state.mediaLibrary.filter((m) => m.id !== id);
+      if (state.identity.portraitUrl === item.url) {
+        state.identity.portraitUrl = DEFAULT_PORTRAIT_SVG;
+      }
+      if (state.pages.home && state.pages.home.heroImage === item.url) {
+        state.pages.home.heroImage = DEFAULT_PORTRAIT_SVG;
+      }
+      addAuditLog('حذف ملف من مكتبة الصور والملفات', item.title || id);
+      saveState();
+      renderAdminSection('media_library');
+      showToast('تم حذف الصورة من مكتبة الصور والملفات بنجاح');
+    }
+
+    function compressImageDataUrl(dataUrl, maxDim = 1080, quality = 0.78) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          let w = img.width;
+          let h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w >= h) {
+              h = Math.round((h * maxDim) / w);
+              w = maxDim;
+            } else {
+              w = Math.round((w * maxDim) / h);
+              h = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          try {
+            const compressed = canvas.toDataURL('image/jpeg', quality);
+            resolve(compressed.length < dataUrl.length ? compressed : dataUrl);
+          } catch (_) {
+            resolve(dataUrl);
+          }
+        };
+        img.onerror = () => resolve(dataUrl);
+        img.src = dataUrl;
+      });
     }
 
     function uploadMediaFile(e) {
@@ -2068,21 +2232,28 @@ Through this website, I aim to present a clear and organized picture of my caree
         showToast('يرجى اختيار ملف أولاً', 'warning');
         return;
       }
-      if (file.size > 2.5 * 1024 * 1024) {
-        addNotification('uploadError', 'حجم الملف كبير', `الملف ${file.name} يتجاوز الحد المسموح للمعاينة المحلية.`);
-        showToast('حجم الملف كبير جداً للمعاينة المحلية (الحد ~2.5MB)', 'error');
+      const isImage = file.type && file.type.startsWith('image/') && file.type !== 'image/svg+xml';
+      const maxSize = isImage ? 10 * 1024 * 1024 : 2.5 * 1024 * 1024;
+      if (file.size > maxSize) {
+        addNotification('uploadError', 'حجم الملف كبير', `الملف ${file.name} يتجاوز الحد المسموح للرفع.`);
+        showToast('حجم الملف كبير جداً للرفع', 'error');
         return;
       }
       const reader = new FileReader();
-      reader.onload = () => {
+      reader.onload = async () => {
+        let finalUrl = reader.result;
+        if (isImage && file.size > 150 * 1024) {
+          finalUrl = await compressImageDataUrl(reader.result, 1080, 0.78);
+        }
+        const approxKb = Math.max(1, Math.round((finalUrl.length * 0.75) / 1024));
         state.mediaLibrary.unshift({
           id: 'med_' + Date.now(),
           title: titleInput.value.trim() || file.name,
           altText: titleInput.value.trim() || file.name,
           category: 'upload',
-          url: reader.result,
-          mimeType: file.type,
-          sizeLabel: `${Math.round(file.size / 1024)} KB`,
+          url: finalUrl,
+          mimeType: isImage ? 'image/jpeg' : file.type,
+          sizeLabel: `${approxKb} KB`,
           rotation: 0,
           position: 'center',
           createdAt: new Date().toISOString()
@@ -2090,7 +2261,7 @@ Through this website, I aim to present a clear and organized picture of my caree
         addAuditLog('رفع ملف إلى المكتبة', file.name);
         saveState();
         renderAdminSection('media_library');
-        showToast('تم رفع الملف إلى المكتبة');
+        showToast('تم رفع الملف إلى المكتبة ومزامنته مع قاعدة البيانات');
       };
       reader.readAsDataURL(file);
     }
@@ -2596,7 +2767,7 @@ Through this website, I aim to present a clear and organized picture of my caree
           </form>
 
           <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs text-slate-200">
-            <div><strong>قاعدة البيانات الحالية:</strong> ${escapeHtml(state.meta.externalServices.databaseProvider)}</div>
+            <div><strong>قاعدة البيانات الحالية:</strong> <span class="${window.__firebaseConnected ? 'text-emerald-400 font-bold' : 'text-amber-300 font-bold'}">${window.__firebaseConnected ? 'Firebase Realtime Database — تم الاتصال بقاعدة البيانات' : escapeHtml(state.meta.externalServices.databaseProvider)}</span></div>
             <div><strong>خدمة البريد الإلكتروني المباشر:</strong> ${state.meta.externalServices.emailServiceConfigured ? 'مفعّلة' : 'غير مربوطة بعد — يتطلب ربط خدمة بريد خارجية لإرسال رسائل نموذج التواصل إلى dhafran1alqudami@gmail.com'}</div>
           </div>
         </div>
@@ -2623,11 +2794,45 @@ Through this website, I aim to present a clear and organized picture of my caree
       `;
     }
 
-    window.__applyRemoteFirebaseState = function() {
-      state = loadState();
+    window.__applyRemoteFirebaseState = function(remoteData) {
+      if (remoteData && typeof remoteData === 'object') {
+        state = mergeStateWithDefaults(remoteData);
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (_) {}
+      } else {
+        state = loadState();
+      }
       if (isAdminAuthenticated) {
         renderAdminSection(currentAdminSection);
         updateAdminNotificationBadge();
+      }
+    };
+
+    window.__updateFirebaseConnectionUi = function(isConnected) {
+      window.__firebaseConnected = !!isConnected;
+      if (state && state.meta && state.meta.externalServices) {
+        state.meta.externalServices.databaseProvider = isConnected
+          ? 'Firebase Realtime Database (تم الاتصال بقاعدة البيانات)'
+          : 'Firebase Realtime Database (جاري إعادة الاتصال...)';
+      }
+      const badge = document.getElementById('firebase-status-badge');
+      const dot = document.getElementById('firebase-status-dot');
+      const text = document.getElementById('firebase-status-text');
+      const sessionBadge = document.getElementById('admin-session-badge');
+      if (badge && dot && text) {
+        if (isConnected) {
+          badge.className = 'px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/45 text-emerald-300 text-[11px] sm:text-xs font-bold flex items-center gap-1.5';
+          dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+          text.textContent = 'تم الاتصال بقاعدة البيانات';
+        } else {
+          badge.className = 'px-2.5 py-1 rounded-full bg-rose-500/15 border border-rose-400/45 text-rose-300 text-[11px] sm:text-xs font-bold flex items-center gap-1.5';
+          dot.className = 'w-2 h-2 rounded-full bg-rose-400 animate-pulse';
+          text.textContent = 'غير متصل بقاعدة البيانات';
+        }
+      }
+      if (sessionBadge) {
+        sessionBadge.textContent = isConnected ? 'متصل • تم الاتصال بقاعدة البيانات' : 'متصل • مدير النظام';
       }
     };
 
@@ -2667,19 +2872,57 @@ Through this website, I aim to present a clear and organized picture of my caree
       appId: "1:725131298783:web:2fd939e126ff2c9fa3266a"
     };
 
+    function sanitizeForFirebase(value) {
+      if (value === undefined) return null;
+      if (value === null || typeof value !== 'object') return value;
+      if (Array.isArray(value)) {
+        return value.map((item) => sanitizeForFirebase(item));
+      }
+      const clean = {};
+      Object.keys(value).forEach((key) => {
+        const val = value[key];
+        if (val === undefined) return;
+        const safeKey = String(key).replace(/[.#$\[\]\/]/g, '_') || '_';
+        clean[safeKey] = sanitizeForFirebase(val);
+      });
+      return clean;
+    }
+
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const stateRef = ref(db, 'dhafran_alqudami_platform_v1');
+    const connectedRef = ref(db, '.info/connected');
+
+    onValue(connectedRef, (snap) => {
+      const isConnected = snap.val() === true;
+      if (typeof window.__updateFirebaseConnectionUi === 'function') {
+        window.__updateFirebaseConnectionUi(isConnected);
+      }
+    });
 
     window.__firebaseSync = {
       initialized: false,
       pushing: false,
+      pendingData: null,
+      lastPushedStr: '',
       push(data) {
-        if (!this.initialized) return;
+        const cleanData = sanitizeForFirebase(data);
+        if (!this.initialized) {
+          this.pendingData = cleanData;
+          return;
+        }
         this.pushing = true;
-        set(stateRef, JSON.parse(JSON.stringify(data)))
-          .catch((err) => console.error('Firebase write error:', err))
-          .finally(() => { this.pushing = false; });
+        this.lastPushedStr = JSON.stringify(cleanData);
+        set(stateRef, cleanData)
+          .catch((err) => {
+            console.error('Firebase write error:', err);
+            if (typeof window.showToast === 'function') {
+              window.showToast('تعذر إرسال التعديلات إلى قاعدة البيانات السحابية', 'error');
+            }
+          })
+          .finally(() => {
+            this.pushing = false;
+          });
       }
     };
 
@@ -2687,33 +2930,37 @@ Through this website, I aim to present a clear and organized picture of my caree
       try {
         const snap = await get(stateRef);
         if (snap.exists() && snap.val()) {
-          const remoteStr = JSON.stringify(snap.val());
-          if (localStorage.getItem('dhafran_alqudami_platform_v1') !== remoteStr) {
-            localStorage.setItem('dhafran_alqudami_platform_v1', remoteStr);
-            if (typeof window.__applyRemoteFirebaseState === 'function') {
-              window.__applyRemoteFirebaseState();
-            }
+          if (typeof window.__applyRemoteFirebaseState === 'function') {
+            window.__applyRemoteFirebaseState(snap.val());
           }
         } else {
-          const localRaw = localStorage.getItem('dhafran_alqudami_platform_v1');
-          if (localRaw) {
-            await set(stateRef, JSON.parse(localRaw));
+          const seedData = typeof state !== 'undefined' ? state : JSON.parse(localStorage.getItem('dhafran_alqudami_platform_v1') || 'null');
+          if (seedData) {
+            const cleanSeed = sanitizeForFirebase(seedData);
+            window.__firebaseSync.pushing = true;
+            window.__firebaseSync.lastPushedStr = JSON.stringify(cleanSeed);
+            await set(stateRef, cleanSeed);
+            window.__firebaseSync.pushing = false;
           }
         }
       } catch (err) {
         console.error('Firebase initial sync error:', err);
       } finally {
         window.__firebaseSync.initialized = true;
+        if (window.__firebaseSync.pendingData) {
+          const queued = window.__firebaseSync.pendingData;
+          window.__firebaseSync.pendingData = null;
+          window.__firebaseSync.push(queued);
+        }
       }
 
       onValue(stateRef, (snapshot) => {
         if (!snapshot.exists() || !snapshot.val() || window.__firebaseSync.pushing) return;
-        const remoteStr = JSON.stringify(snapshot.val());
-        if (localStorage.getItem('dhafran_alqudami_platform_v1') !== remoteStr) {
-          localStorage.setItem('dhafran_alqudami_platform_v1', remoteStr);
-          if (typeof window.__applyRemoteFirebaseState === 'function') {
-            window.__applyRemoteFirebaseState();
-          }
+        const remoteVal = snapshot.val();
+        const remoteStr = JSON.stringify(remoteVal);
+        if (remoteStr === window.__firebaseSync.lastPushedStr) return;
+        if (typeof window.__applyRemoteFirebaseState === 'function') {
+          window.__applyRemoteFirebaseState(remoteVal);
         }
       });
     })();

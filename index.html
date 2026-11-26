@@ -563,7 +563,7 @@
             serviceIssue: true
           },
           externalServices: {
-            databaseProvider: 'Browser Local Store (Active Demo) — Firebase/Supabase Ready',
+            databaseProvider: 'Firebase Realtime Database (تم الاتصال بقاعدة البيانات)',
             emailServiceConfigured: false,
             emailProviderNote: 'يتطلب ربط خدمة بريد خارجية (مثل EmailJS أو Resend أو Formspree أو خادم خلفي) لإرسال رسائل التواصل الفورية إلى dhafran1alqudami@gmail.com دون كشف مفاتيح سرية في الواجهة.',
             translationServiceConfigured: false
@@ -840,28 +840,88 @@ Through this website, I aim to present a clear and organized picture of my caree
     let portfolioCategoryFilter = 'all';
     let audioCtx = null;
 
+    function normalizeFirebaseArray(val, fallback = []) {
+      if (Array.isArray(val)) return val;
+      if (val && typeof val === 'object') return Object.values(val);
+      return fallback;
+    }
+
+    function mergeStateWithDefaults(parsed) {
+      const base = createInitialState();
+      if (!parsed || typeof parsed !== 'object') return base;
+      const mergedPages = { ...base.pages };
+      if (parsed.pages && typeof parsed.pages === 'object') {
+        Object.keys(parsed.pages).forEach((k) => {
+          mergedPages[k] = { ...(base.pages[k] || {}), ...(parsed.pages[k] || {}) };
+        });
+      }
+      const parsedMeta = parsed.meta || {};
+      const parsedAnalytics = parsed.analytics || {};
+      const mergedCvVersions = normalizeFirebaseArray(parsed.cvVersions, base.cvVersions).map((cv) => ({
+        ...cv,
+        sectionsOrder: normalizeFirebaseArray(cv.sectionsOrder, ['identity', 'about', 'skills', 'experience', 'portfolio', 'achievements', 'certificates', 'languages', 'hobbies', 'custom']),
+        visibleSections: cv.visibleSections || {},
+        languages: normalizeFirebaseArray(cv.languages, []),
+        hobbies: normalizeFirebaseArray(cv.hobbies, []),
+        customSections: normalizeFirebaseArray(cv.customSections, [])
+      }));
+      return {
+        ...base,
+        ...parsed,
+        meta: {
+          ...base.meta,
+          ...parsedMeta,
+          seoConfig: { ...base.meta.seoConfig, ...(parsedMeta.seoConfig || {}) },
+          notificationPrefs: { ...base.meta.notificationPrefs, ...(parsedMeta.notificationPrefs || {}) },
+          externalServices: {
+            ...base.meta.externalServices,
+            ...(parsedMeta.externalServices || {}),
+            databaseProvider: window.__firebaseConnected
+              ? 'Firebase Realtime Database (تم الاتصال بقاعدة البيانات)'
+              : base.meta.externalServices.databaseProvider
+          },
+          socialLinks: normalizeFirebaseArray(parsedMeta.socialLinks, base.meta.socialLinks)
+        },
+        identity: { ...base.identity, ...(parsed.identity || {}) },
+        pageOrder: normalizeFirebaseArray(parsed.pageOrder, base.pageOrder),
+        pages: mergedPages,
+        skills: normalizeFirebaseArray(parsed.skills, base.skills),
+        experiences: normalizeFirebaseArray(parsed.experiences, base.experiences),
+        portfolio: normalizeFirebaseArray(parsed.portfolio, []),
+        achievements: normalizeFirebaseArray(parsed.achievements, []),
+        certificates: normalizeFirebaseArray(parsed.certificates, []),
+        mediaLibrary: normalizeFirebaseArray(parsed.mediaLibrary, base.mediaLibrary),
+        cvVersions: mergedCvVersions.length ? mergedCvVersions : base.cvVersions,
+        followers: normalizeFirebaseArray(parsed.followers, []),
+        messages: normalizeFirebaseArray(parsed.messages, []),
+        notifications: normalizeFirebaseArray(parsed.notifications, base.notifications),
+        auditLog: normalizeFirebaseArray(parsed.auditLog, base.auditLog),
+        analytics: {
+          ...base.analytics,
+          ...parsedAnalytics,
+          knownVisitorIds: normalizeFirebaseArray(parsedAnalytics.knownVisitorIds, []),
+          pageViews: parsedAnalytics.pageViews || {},
+          dailyStats: parsedAnalytics.dailyStats || {},
+          devices: { ...base.analytics.devices, ...(parsedAnalytics.devices || {}) },
+          browsers: parsedAnalytics.browsers || {},
+          os: parsedAnalytics.os || {},
+          referrers: parsedAnalytics.referrers || {},
+          eventsLog: normalizeFirebaseArray(parsedAnalytics.eventsLog, []),
+          contactClicks: { ...base.analytics.contactClicks, ...(parsedAnalytics.contactClicks || {}) },
+          activeSessions: parsedAnalytics.activeSessions || {}
+        }
+      };
+    }
+
     function loadState() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) {
           const initial = createInitialState();
-          saveState(initial, false);
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(initial)); } catch (_) {}
           return initial;
         }
-        const parsed = JSON.parse(raw);
-        const base = createInitialState();
-        return {
-          ...base,
-          ...parsed,
-          meta: {
-            ...base.meta,
-            ...(parsed.meta || {}),
-            seoConfig: { ...base.meta.seoConfig, ...((parsed.meta && parsed.meta.seoConfig) || {}) }
-          },
-          identity: { ...base.identity, ...(parsed.identity || {}) },
-          pages: { ...base.pages, ...(parsed.pages || {}) },
-          analytics: { ...base.analytics, ...(parsed.analytics || {}) }
-        };
+        return mergeStateWithDefaults(JSON.parse(raw));
       } catch (err) {
         console.error('Error loading state:', err);
         return createInitialState();
@@ -1030,7 +1090,7 @@ Through this website, I aim to present a clear and organized picture of my caree
       else if (/Mac OS X/i.test(ua)) os = 'macOS';
       else if (/Linux/i.test(ua)) os = 'Linux';
 
-      const ref = document.referrer ? new URL(document.referrer).hostname : 'Direct / مباشر';
+      const ref = document.referrer ? new URL(document.referrer).hostname.replace(/[.#$\[\]\/]/g, '_') : 'Direct - مباشر';
       return { device, browser, os, ref };
     }
 
@@ -2431,8 +2491,15 @@ Through this website, I aim to present a clear and organized picture of my caree
       });
     }
 
-    window.__applyRemoteFirebaseState = function() {
-      state = loadState();
+    window.__applyRemoteFirebaseState = function(remoteData) {
+      if (remoteData && typeof remoteData === 'object') {
+        state = mergeStateWithDefaults(remoteData);
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (_) {}
+      } else {
+        state = loadState();
+      }
       applyVisualPreferences();
       renderCurrentPage();
     };
@@ -2476,17 +2543,37 @@ Through this website, I aim to present a clear and organized picture of my caree
       appId: "1:725131298783:web:2fd939e126ff2c9fa3266a"
     };
 
+    function sanitizeForFirebase(value) {
+      if (value === undefined) return null;
+      if (value === null || typeof value !== 'object') return value;
+      if (Array.isArray(value)) {
+        return value.map((item) => sanitizeForFirebase(item));
+      }
+      const clean = {};
+      Object.keys(value).forEach((key) => {
+        const val = value[key];
+        if (val === undefined) return;
+        const safeKey = String(key).replace(/[.#$\[\]\/]/g, '_') || '_';
+        clean[safeKey] = sanitizeForFirebase(val);
+      });
+      return clean;
+    }
+
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const stateRef = ref(db, 'dhafran_alqudami_platform_v1');
 
     window.__firebaseSync = {
       initialized: false,
+      hasRemoteData: false,
       pushing: false,
+      lastPushedStr: '',
       push(data) {
-        if (!this.initialized) return;
+        if (!this.initialized || !this.hasRemoteData) return;
+        const cleanData = sanitizeForFirebase(data);
         this.pushing = true;
-        set(stateRef, JSON.parse(JSON.stringify(data)))
+        this.lastPushedStr = JSON.stringify(cleanData);
+        set(stateRef, cleanData)
           .catch((err) => console.error('Firebase write error:', err))
           .finally(() => { this.pushing = false; });
       }
@@ -2496,17 +2583,9 @@ Through this website, I aim to present a clear and organized picture of my caree
       try {
         const snap = await get(stateRef);
         if (snap.exists() && snap.val()) {
-          const remoteStr = JSON.stringify(snap.val());
-          if (localStorage.getItem('dhafran_alqudami_platform_v1') !== remoteStr) {
-            localStorage.setItem('dhafran_alqudami_platform_v1', remoteStr);
-            if (typeof window.__applyRemoteFirebaseState === 'function') {
-              window.__applyRemoteFirebaseState();
-            }
-          }
-        } else {
-          const localRaw = localStorage.getItem('dhafran_alqudami_platform_v1');
-          if (localRaw) {
-            await set(stateRef, JSON.parse(localRaw));
+          window.__firebaseSync.hasRemoteData = true;
+          if (typeof window.__applyRemoteFirebaseState === 'function') {
+            window.__applyRemoteFirebaseState(snap.val());
           }
         }
       } catch (err) {
@@ -2517,12 +2596,12 @@ Through this website, I aim to present a clear and organized picture of my caree
 
       onValue(stateRef, (snapshot) => {
         if (!snapshot.exists() || !snapshot.val() || window.__firebaseSync.pushing) return;
-        const remoteStr = JSON.stringify(snapshot.val());
-        if (localStorage.getItem('dhafran_alqudami_platform_v1') !== remoteStr) {
-          localStorage.setItem('dhafran_alqudami_platform_v1', remoteStr);
-          if (typeof window.__applyRemoteFirebaseState === 'function') {
-            window.__applyRemoteFirebaseState();
-          }
+        window.__firebaseSync.hasRemoteData = true;
+        const remoteVal = snapshot.val();
+        const remoteStr = JSON.stringify(remoteVal);
+        if (remoteStr === window.__firebaseSync.lastPushedStr) return;
+        if (typeof window.__applyRemoteFirebaseState === 'function') {
+          window.__applyRemoteFirebaseState(remoteVal);
         }
       });
     })();
